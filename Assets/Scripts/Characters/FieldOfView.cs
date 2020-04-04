@@ -7,30 +7,79 @@ namespace Characters
 {
     public class FieldOfView : MonoBehaviour
     {
-        public float viewRadius;
-        [Range(0, 360)] public float viewAngle;
+        public GameObject playerAttached;
+        private Mesh mesh;
+        public LayerMask blockingObjectMask;
+        public LayerMask playerMask;
 
-        public LayerMask targetMask;
-        public LayerMask obstacleMask;
-        public List<Transform> visibleTargets = new List<Transform>();
+        private float fov;
+        private float viewDistance;
+        private float startingAngle;
 
-        public float meshResolution;
-        public MeshFilter viewMeshFilter;
-        private Mesh viewMesh;
-        
+        private Vector3 origin;
+
         void Start()
         {
-            viewMesh = new Mesh();
-            viewMesh.name = "View Mesh";
-            viewMeshFilter.mesh = viewMesh;
+            mesh = new Mesh();
+            GetComponent<MeshFilter>().mesh = mesh;
+            fov = 90f;
+            viewDistance = 50f;
             StartCoroutine("FindTargetsWithDelay", .2f);
+        }
+
+        private void Update()
+        {
+            SetAimDirection(playerAttached.transform.right * -1);
+            origin = playerAttached.transform.position;
         }
 
         private void LateUpdate()
         {
-            drawFieldOfView();
-        }
+            int rayCount = 50;
+            float angle = startingAngle;
+            float angleIncrease = fov / rayCount;
 
+            Vector3[] vertices = new Vector3[rayCount + 1 + 1];
+            Vector2[] uv = new Vector2[vertices.Length];
+            int[] triangles = new int[rayCount * 3];
+
+            vertices[0] = origin;
+
+            int vertexIndex = 1;
+            int triangleIndex = 0;
+            for (int i = 0; i <= rayCount; i++)
+            {
+                Vector3 vertex;
+                RaycastHit2D raycastHit2D =
+                    Physics2D.Raycast(origin, getVectorFromAngle(angle), viewDistance, blockingObjectMask);
+
+                if (raycastHit2D.collider == null)
+                {
+                    vertex = origin + getVectorFromAngle(angle) * viewDistance;
+                }
+                else
+                {
+                    vertex = raycastHit2D.point;
+                }
+                
+                vertices[vertexIndex] = vertex;
+                if (i > 0)
+                {
+                    triangles[triangleIndex + 0] = 0;
+                    triangles[triangleIndex + 1] = vertexIndex - 1;
+                    triangles[triangleIndex + 2] = vertexIndex;
+                    triangleIndex += 3;
+                }
+
+                vertexIndex++;
+                angle -= angleIncrease;
+            }
+
+            mesh.vertices = vertices;
+            mesh.uv = uv;
+            mesh.triangles = triangles;
+        }
+        
         IEnumerator FindTargetsWithDelay(float delay)
         {
             while (true)
@@ -39,104 +88,50 @@ namespace Characters
                 FindVisibleTargets();
             }
         }
-
+        
         void FindVisibleTargets()
         {
-            visibleTargets.Clear();
-            Collider2D[] targetsInViewRadius = Physics2D.OverlapCircleAll(transform.position, viewRadius, targetMask);
+            Collider2D[] targetsInViewRadius = Physics2D.OverlapCircleAll(transform.position, viewDistance, playerMask);
 
             for (int i = 0; i < targetsInViewRadius.Length; i++)
             {
                 Transform target = targetsInViewRadius[i].transform;
-                Vector2 dirToTarget = new Vector2(target.position.x - transform.position.x,
-                    target.position.y - transform.position.y);
-                if (Vector2.Angle(dirToTarget, transform.up) < viewAngle / 2)
+                Vector2 dirToTarget = new Vector2(target.position.x - playerAttached.transform.position.x,
+                    target.position.y - playerAttached.transform.position.y);
+                
+                if (Vector2.Angle(dirToTarget, transform.up) < startingAngle / 2)
                 {
                     float dstToTarget = Vector2.Distance(transform.position, target.position);
 
-                    if (!Physics2D.Raycast(transform.position, dirToTarget, dstToTarget, obstacleMask))
+                    if (!Physics2D.Raycast(transform.position, dirToTarget, dstToTarget, blockingObjectMask))
                     {
-                        visibleTargets.Add(target);
+                        Debug.Log("encontre a player");
+                    }
+                    else
+                    {
+                        Debug.Log("no he encontrado ni mierda");
                     }
                 }
             }
         }
 
-        void drawFieldOfView()
+        private Vector3 getVectorFromAngle(float angle)
         {
-            int stepCount = Mathf.RoundToInt(viewAngle * meshResolution);
-            float stepAngleSize = viewAngle / stepCount;
-            List<Vector3> viewPoints = new List<Vector3>();
-            for (int i = 0; i <= stepCount; i++)
-            {
-                float angle = transform.eulerAngles.y - viewAngle / 2 + stepAngleSize * i;
-                ViewCastInfo newViewCastInfo = ViewCast(angle);
-                viewPoints.Add(newViewCastInfo.point);
-            }
-
-            int vertexCount = viewPoints.Count + 1;
-            Vector3[] vertices = new Vector3[vertexCount];
-            int[] triangles = new int[(vertexCount - 2) * 3];
-
-            vertices[0] = Vector3.zero;
-            
-            for (int i = 0; i <= vertexCount - 1; i++)
-            {
-                vertices[i + 1] = viewPoints[i];
-                if (i < vertexCount - 2)
-                {
-                    triangles[i * 3] = 0;
-                    triangles[i * 3 + 1] = i + 1;
-                    triangles[i * 3 + 2] = i + 2;
-                    
-                }
-            }
-            viewMesh.Clear();
-            viewMesh.vertices = vertices;
-            viewMesh.triangles = triangles;
-            viewMesh.RecalculateNormals();
+            float angleRad = angle * (Mathf.PI / 180f);
+            return new Vector3(Mathf.Cos(angleRad), Mathf.Sin(angleRad));
         }
 
-        public Vector3 DirFromAngle(float angleInDegress, bool angleIsGlobal)
+        public void SetAimDirection(Vector2 aimDirection)
         {
-            if (!angleIsGlobal)
-            {
-                angleInDegress += transform.eulerAngles.z;
-            }
-            
-            return new Vector3(Mathf.Sin(angleInDegress * Mathf.Deg2Rad), Mathf.Cos(angleInDegress * Mathf.Deg2Rad),0);
+            startingAngle = getAngleFromVectorFloat(aimDirection) - fov / 2f;
         }
 
-        ViewCastInfo ViewCast(float globalAngle)
+        private float getAngleFromVectorFloat(Vector2 dir)
         {
-            Vector3 dir = DirFromAngle(globalAngle, true);
-            RaycastHit2D hit = Physics2D.Raycast(transform.position, dir, viewRadius, obstacleMask);
-            if (hit.collider != null)
-            {
-                return new ViewCastInfo(true,hit.point,hit.distance,globalAngle);
-            }
-            else
-            {
-                return new ViewCastInfo(false,transform.position + dir * viewRadius,viewRadius,globalAngle);
-            }
-        }
-        
-        public struct ViewCastInfo
-        {
-            public bool hit;
-            public Vector3 point;
-            public float dist;
-            public float angle;
-
-            public ViewCastInfo(bool hit, Vector3 point, float dist, float angle)
-            {
-                this.hit = hit;
-                this.point = point;
-                this.dist = dist;
-                this.angle = angle;
-            }
-            
-            
+            dir = dir.normalized;
+            float n = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+            if (n < 0) n += 360;
+            return n;
         }
     }
 }
