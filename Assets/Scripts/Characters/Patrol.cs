@@ -15,22 +15,25 @@ namespace Characters
         public Transform playerTarget;
         public float speed;
         public float startWaitTime;
+        public float startFollowTime;
         public Transform[] moveSpots;
         public float nextWayPointDistance = 3f;
         public Seeker seeker;
-        public Rigidbody2D rigidbody2D;
+        public Rigidbody2D rgb;
         public Transform GFX;
-
-        private bool searching = false;
+        
+        private bool following = false;
         private int currentWayPoint;
         private Path path;
         private float waitTime;
         private int randomSpot;
+        public float followingTime;
 
         private void Start()
         {
             Physics2D.queriesStartInColliders = false;
             waitTime = startWaitTime;
+            followingTime = startFollowTime;
             updatePath();
         }
 
@@ -39,20 +42,21 @@ namespace Characters
             if (seeker.IsDone())
             {
                 randomSpot = Random.Range(0, moveSpots.Length);
-                seeker.StartPath(rigidbody2D.position, moveSpots[randomSpot].position, OnPathComplete);
+                seeker.StartPath(rgb.position, moveSpots[randomSpot].position, OnPathComplete);
             }
         }
 
         void followPlayer()
         {
-            InvokeRepeating("followingPlayer",0,0.5f);
+            following = true;
+            InvokeRepeating("followingPlayer", 0, 0.5f);
         }
 
         void followingPlayer()
         {
             if (seeker.IsDone())
             {
-                seeker.StartPath(rigidbody2D.position, playerTarget.transform.position, OnPathComplete);
+                seeker.StartPath(rgb.position, playerTarget.transform.position, OnPathComplete);
             }
         }
 
@@ -67,60 +71,69 @@ namespace Characters
 
         void enemySearching()
         {
-            if (searching)
+            if (following)
             {
-                lineOfSight.gameObject.SetActive(true);
-                GFX.transform.Rotate(Vector3.forward * rotationSpeed * Time.deltaTime);
-
-                RaycastHit2D hitInfo = Physics2D.Raycast(GFX.transform.position, GFX.transform.right, distance);
-
-                if (hitInfo.collider != null)
+                if (followingTime <= 0)
                 {
-                    lineOfSight.SetPosition(1, hitInfo.point);
-                    lineOfSight.colorGradient = redColor;
-                    if (hitInfo.collider.CompareTag("Player"))
+                    following = false;
+                    followingTime = startFollowTime;
+                    CancelInvoke("followingPlayer");
+                    updatePath();
+                }
+            
+                followingTime -= Time.fixedDeltaTime;
+            }
+
+            RaycastHit2D hitInfo = Physics2D.Raycast(GFX.transform.position, GFX.transform.right, distance);
+            if (hitInfo.collider != null)
+            {
+                lineOfSight.SetPosition(1, hitInfo.point);
+                lineOfSight.colorGradient = redColor;
+                if (hitInfo.collider.CompareTag("Player"))
+                {
+                    followingTime = startFollowTime;
+                    if (!following)
                     {
-                        followPlayer();
+                        followPlayer();   
                     }
                 }
-                else
-                {
-                    lineOfSight.SetPosition(1, GFX.transform.position + GFX.transform.right * distance);
-                    lineOfSight.colorGradient = greenColor;
-                    
-                }
-
-                lineOfSight.SetPosition(0, GFX.position);
             }
+            else
+            {
+                lineOfSight.SetPosition(1, GFX.transform.position + GFX.transform.right * distance);
+                lineOfSight.colorGradient = greenColor;
+            }
+            lineOfSight.SetPosition(0, GFX.position);
         }
 
         private void FixedUpdate()
         {
             if (path == null) return;
 
+            this.enemySearching();
             if (currentWayPoint >= path.vectorPath.Count)
             {
-                this.enemySearching();
                 if (waitTime <= 0)
                 {
                     updatePath();
                     waitTime = startWaitTime;
-                    searching = false;
-                    lineOfSight.gameObject.SetActive(false);
                 }
                 else
                 {
+                    GFX.transform.Rotate(Vector3.forward * rotationSpeed * Time.fixedDeltaTime);
                     waitTime -= Time.fixedDeltaTime;
-                    searching = true;
                 }
-
                 return;
             }
 
-            Vector2 direction = ((Vector2) path.vectorPath[currentWayPoint] - rigidbody2D.position).normalized * speed;
-            rigidbody2D.MovePosition(rigidbody2D.position + direction * Time.fixedDeltaTime);
-            float distance = Vector2.Distance(rigidbody2D.position, path.vectorPath[currentWayPoint]);
+            Vector2 direction = ((Vector2) path.vectorPath[currentWayPoint] - rgb.position).normalized * speed;
+            rgb.MovePosition(rgb.position + direction * Time.fixedDeltaTime);
+            float distance = Vector2.Distance(rgb.position, path.vectorPath[currentWayPoint]);
 
+            Vector3 dir = (Vector2)path.vectorPath[path.vectorPath.Count - 1] - rgb.position;
+            float angle = Mathf.Atan2(dir.y,dir.x) * Mathf.Rad2Deg;
+            GFX.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+            
             if (distance < nextWayPointDistance)
             {
                 currentWayPoint++;
