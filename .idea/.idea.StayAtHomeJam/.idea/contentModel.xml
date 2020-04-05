@@ -211,6 +211,7 @@
         <e p="Scripts" t="Include">
           <e p="Characters" t="Include">
             <e p="CharacterMovement.cs" t="Include" />
+            <e p="InteractBuy.cs" t="Include" />
             <e p="InteractScript.cs" t="Include" />
             <e p="Patrol.cs" t="Include" />
             <e p="PatrolPeople.cs" t="Include" />

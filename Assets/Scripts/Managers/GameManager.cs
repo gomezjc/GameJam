@@ -8,8 +8,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
 
-    [Header("Paneles")] 
-    public GameObject BuyPanel;
+    [Header("Paneles")] public GameObject BuyPanel;
     public GameObject EndOfDay;
 
     [Header("Texto")] public TextMeshProUGUI timeText;
@@ -131,10 +130,29 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void SellItem(Items item)
+    {
+        cash += item.sellingPrice;
+        setCashText();
+        int index = inventory.FindIndex(x => x.inventoryCode == item.inventoryCode);
+        inventory.RemoveAt(index);
+        SetInventoryText();
+    }
+
     private void SetInventoryText()
     {
         empanadasCountText.text = "Empanadas: " + inventory.FindAll(x => x.inventoryCode == EMPANADA).Count;
         arepasCountText.text = "Arepas: " + inventory.FindAll(x => x.inventoryCode == AREPA).Count;
         TintoCountText.text = "Tintos: " + inventory.FindAll(x => x.inventoryCode == TINTO).Count;
+    }
+
+    public void StartGame()
+    {
+        Time.timeScale = 1;
+    }
+
+    public void StopGame()
+    {
+        Time.timeScale = 0;
     }
 }
