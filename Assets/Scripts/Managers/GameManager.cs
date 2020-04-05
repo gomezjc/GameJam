@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
     [Header("Paneles")] public GameObject BuyPanel;
     public GameObject EndOfDay;
     public GameObject ArrestPanel;
+    public GameObject GameOverPanel;
 
     [Header("Texto")] public TextMeshProUGUI timeText;
     public TextMeshProUGUI cashText;
@@ -62,10 +63,9 @@ public class GameManager : MonoBehaviour
             time--;
             setScoreTimer();
         }
-
         nextLevel();
     }
-
+    
     private void setScoreTimer()
     {
         timeText.text = string.Format("{0:0}:{1:00}", Mathf.Floor(time / 60), time % 60);
@@ -84,14 +84,20 @@ public class GameManager : MonoBehaviour
 
     public void nextLevel()
     {
-        GameControl.instance.nextLevel();
-        setDayText();
-        setFamilyHungry(35);
-
-        if (GameControl.instance.playerInfo.Day > 1)
+        if (GameControl.instance.playerInfo.Health <= 0)
         {
-            StopGame();
-            EndOfDay.SetActive(true);
+            GameOVer();
+        }
+        else
+        {
+            setFamilyHungry(35);
+            GameControl.instance.nextLevel();
+            setDayText();
+            if (GameControl.instance.playerInfo.Day > 1)
+            {
+                StopGame();
+                EndOfDay.SetActive(true);
+            }
         }
     }
 
@@ -156,6 +162,12 @@ public class GameManager : MonoBehaviour
         empanadasCountText.text = "Empanadas: " + GameControl.instance.CountItemByInventoryCode(EMPANADA);
         arepasCountText.text = "Arepas: " + GameControl.instance.CountItemByInventoryCode(AREPA);
         TintoCountText.text = "Tintos: " + GameControl.instance.CountItemByInventoryCode(TINTO);
+    }
+
+    public void GameOVer()
+    {
+        GameOverPanel.SetActive(true);
+        StopGame();
     }
 
     public void StartGame()

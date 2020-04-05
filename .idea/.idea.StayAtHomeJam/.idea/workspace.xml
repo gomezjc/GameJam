@@ -2,7 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="16c9029c-2256-495f-8565-7238bd1fa23d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Characters/InteractScript.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Characters/InteractScript.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.StayAtHomeJam/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.StayAtHomeJam/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Managers/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Managers/GameManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Misc/ScriptableObjects/Pollo.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Misc/ScriptableObjects/Pollo.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,8 +45,8 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/Characters/Patrol.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Misc/Items.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Managers/GameControl.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Managers/GameManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Characters/InteractScript.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Managers/GameManager.cs" />
       </list>
     </option>
   </component>

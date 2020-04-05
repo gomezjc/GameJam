@@ -20,4 +20,4 @@ MonoBehaviour:
   isInventory: 0
   inventoryCode: 0
   canEat: 1
-  energy: 20
+  energy: 35
