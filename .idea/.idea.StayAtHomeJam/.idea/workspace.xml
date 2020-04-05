@@ -6,6 +6,7 @@
       <change beforePath="$PROJECT_DIR$/.idea/.idea.StayAtHomeJam/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.StayAtHomeJam/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Characters/InteractScript.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Characters/InteractScript.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Characters/Patrol.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Characters/Patrol.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Managers/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Managers/GameManager.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -17,16 +18,17 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Characters/CharacterMovement.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Managers/GameControl.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Managers/GameManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Characters/InteractArrest.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Characters/InteractScript.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Characters/PatrolPeople.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Misc/Items.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../empty/Assets/FieldOfView/Scripts/FieldOfView.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Characters/InteractBuy.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Characters/InteractScript.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Characters/PatrolPeople.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Characters/Patrol.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Misc/Items.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -35,17 +37,18 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/Misc/FieldOfViewEditor.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Characters/FieldOfView.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Characters/Enemy.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Characters/Patrol.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Characters/CharacterMovement.cs" />
         <option value="$PROJECT_DIR$/Assets/InteractScript.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Characters/PatrolPeople.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Misc/ScriptableObjects/Items.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Misc/Items.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Misc/TextScript.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Characters/InteractBuy.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Characters/InteractArrest.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Managers/GameManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Characters/Patrol.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Misc/Items.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Characters/InteractScript.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Managers/GameControl.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Managers/GameManager.cs" />
       </list>
     </option>
   </component>
@@ -96,10 +99,10 @@
     </option>
   </component>
   <component name="WindowStateProjectService">
-    <state x="670" y="210" key="RiderGenerateDialog" timestamp="1585934510815">
+    <state x="670" y="210" key="RiderGenerateDialog" timestamp="1586098729650">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="670" y="210" key="RiderGenerateDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1585934510815" />
+    <state x="670" y="210" key="RiderGenerateDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1586098729650" />
     <state x="461" y="162" key="SettingsEditor" timestamp="1586008498903">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

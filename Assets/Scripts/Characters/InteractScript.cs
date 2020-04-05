@@ -6,19 +6,23 @@ using UnityEngine;
 public class InteractScript : MonoBehaviour
 {
     private PatrolPeople people;
+    private Patrol enemy;
     private InteractBuy peopleInteract;
     private InteractArrest enemyArrest;
     private bool isTalking;
 
+    [Header("Global")]
     public TextMeshProUGUI interactText;
 
+    [Header("Buy Panel")]
+    public TextMeshProUGUI itemText;
     public GameObject BuyButton;
     public GameObject CloseButton;
 
+    [Header("Arrest Panel")]
     public GameObject BirbeButton;
     public GameObject ArrestButton;
     
-    public TextMeshProUGUI itemText;
 
     private void Update()
     {
@@ -33,7 +37,7 @@ public class InteractScript : MonoBehaviour
         if (people != null)
         {
             itemText.text = "Tiene: " + peopleInteract.itemWantToBuy.name;
-            if (checkInventory())
+            if (GameControl.instance.hasItemInventoryByItem(peopleInteract.itemWantToBuy))
             {
                 BuyButton.SetActive(true);
                 CloseButton.SetActive(false);
@@ -50,24 +54,31 @@ public class InteractScript : MonoBehaviour
     
     private void openArrestDialog()
     {
-        if (enemyArrest != null)
+        if (enemy != null && enemyArrest != null)
         {
-            if (GameManager.instance.cash < 10000)
+            if (enemy.canFollow)
             {
-                BirbeButton.SetActive(false);
+                if (GameControl.instance.playerInfo.Money < 10000)
+                {
+                    BirbeButton.SetActive(false);
+                }
+                GameManager.instance.StopGame();
+                GameManager.instance.ArrestPanel.SetActive(true);
             }
-            GameManager.instance.StopGame();
-            GameManager.instance.ArrestPanel.SetActive(true);
         }
     }
 
     public void BribeEnemy()
     {
-        if (enemyArrest != null)
+        if (enemy != null && enemyArrest != null)
         {
             if (enemyArrest.BribeEnemy())
             {
                 GameManager.instance.addCash(-10000);
+                GameManager.instance.ArrestPanel.SetActive(false);
+                enemy.canFollow = false;
+                resetBehaviourEnemy();
+                GameManager.instance.StartGame();
             }
             else
             {
@@ -80,14 +91,13 @@ public class InteractScript : MonoBehaviour
     {
         GameManager.instance.ArrestPanel.SetActive(false);
         GameManager.instance.ClearInventory();
-        GameManager.instance.nextLevel();
     }
 
     public void BuyItem()
     {
         if (people != null)
         {
-            if (checkInventory())
+            if (GameControl.instance.hasItemInventoryByItem(peopleInteract.itemWantToBuy))
             {
                 GameManager.instance.SellItem(peopleInteract.itemWantToBuy);
                 GameManager.instance.StartGame();
@@ -98,15 +108,7 @@ public class InteractScript : MonoBehaviour
             resetBehaviour();
         }
     }
-
-    private bool checkInventory()
-    {
-        int countInventory = GameManager.instance.inventory
-            .FindAll(x => x.inventoryCode == peopleInteract.itemWantToBuy.inventoryCode).Count;
-
-        return (countInventory >= 1);
-    }
-
+    
     public void CloseDialog()
     {
         if (people != null)
@@ -132,8 +134,12 @@ public class InteractScript : MonoBehaviour
             }
         }else if (other.gameObject.CompareTag("Enemy"))
         {
-            enemyArrest = other.GetComponent<InteractArrest>();
-            openArrestDialog();
+            enemy = other.GetComponentInParent<Patrol>();
+            if (enemy.canFollow)
+            {
+                enemyArrest = other.GetComponent<InteractArrest>();
+                openArrestDialog();
+            }
         }
     }
 
@@ -144,7 +150,7 @@ public class InteractScript : MonoBehaviour
             resetBehaviour();
         }else if (other.gameObject.CompareTag("Enemy"))
         {
-
+            resetBehaviourEnemy();
         }
     }
 
@@ -162,13 +168,12 @@ public class InteractScript : MonoBehaviour
     
     void resetBehaviourEnemy()
     {
-        if (people != null && peopleInteract != null)
+        if (enemy != null && enemyArrest != null)
         {
-            people.continuePath();
-            people = null;
-            peopleInteract = null;
+            enemy.cancelFollow();
+            enemy = null;
+            enemyArrest = null;
         }
-        isTalking = false;
         SetInteractText("",false);
     }
 

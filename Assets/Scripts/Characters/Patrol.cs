@@ -29,6 +29,7 @@ namespace Characters
         private int randomSpot;
         public float followingTime;
 
+        public bool canFollow;
         private void Start()
         {
             Physics2D.queriesStartInColliders = false;
@@ -69,16 +70,21 @@ namespace Characters
             }
         }
 
+        public void cancelFollow()
+        {
+            following = false;
+            followingTime = startFollowTime;
+            CancelInvoke("followingPlayer");
+            updatePath();
+        }
+
         void enemySearching()
         {
             if (following)
             {
                 if (followingTime <= 0)
                 {
-                    following = false;
-                    followingTime = startFollowTime;
-                    CancelInvoke("followingPlayer");
-                    updatePath();
+                    cancelFollow();
                 }
             
                 followingTime -= Time.fixedDeltaTime;
@@ -89,7 +95,7 @@ namespace Characters
             {
                 lineOfSight.SetPosition(1, hitInfo.point);
                 lineOfSight.colorGradient = redColor;
-                if (hitInfo.collider.CompareTag("Player"))
+                if (hitInfo.collider.CompareTag("Player") && canFollow)
                 {
                     followingTime = startFollowTime;
                     if (!following)

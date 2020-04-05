@@ -21,18 +21,12 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI TintoCountText;
 
     [Header("Gameplay")] public float time;
-    public int day = 0;
-    public int cash;
 
-    [Header("GamePlay")] public float StartingHealth;
-    public float CurrentHealth;
-    public Image FamilyHealthBar;
+    [Header("GamePlay")] public Image FamilyHealthBar;
 
     [HideInInspector] public static int EMPANADA = 0;
     [HideInInspector] public static int TINTO = 1;
     [HideInInspector] public static int AREPA = 2;
-
-    [HideInInspector] public List<Items> inventory;
 
     #region Singleton
 
@@ -41,7 +35,6 @@ public class GameManager : MonoBehaviour
         if (instance == null)
         {
             instance = this;
-            DontDestroyOnLoad(this);
         }
         else if (instance != this)
         {
@@ -53,16 +46,11 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        inventory = new List<Items>();
-
-        CurrentHealth = StartingHealth;
-
-        // OJO BORRAR!
-        setFamilyHungry(30);
-
-        nextLevel();
+        HealthFillAmount();
+        setDayText();
         setScoreTimer();
         setCashText();
+        SetInventoryText();
         StartCoroutine(addTimer());
     }
 
@@ -85,54 +73,68 @@ public class GameManager : MonoBehaviour
 
     public void addCash(int amount)
     {
-        cash += amount;
+        GameControl.instance.playerInfo.Money += amount;
         setCashText();
     }
 
     private void setCashText()
     {
-        cashText.text = "$ " + cash;
+        cashText.text = "$ " + GameControl.instance.playerInfo.Money;
     }
 
     public void nextLevel()
     {
-        day++;
-        dayText.text = "Dia: " + day;
-       
-        if (day > 1)
+        GameControl.instance.nextLevel();
+        setDayText();
+        setFamilyHungry(35);
+
+        if (GameControl.instance.playerInfo.Day > 1)
         {
             StopGame();
             EndOfDay.SetActive(true);
         }
     }
 
+    private void setDayText()
+    {
+        dayText.text = "Dia: " + GameControl.instance.playerInfo.Day;
+    }
+
     public void setFamilyHungry(float amount)
     {
-        CurrentHealth -= amount;
-        FamilyHealthBar.fillAmount = CurrentHealth / StartingHealth;
+        GameControl.instance.playerInfo.Health -= amount;
+        HealthFillAmount();
+    }
+
+    public void HealthFillAmount()
+    {
+        FamilyHealthBar.fillAmount =
+            GameControl.instance.playerInfo.Health / GameControl.instance.playerInfo.StartingHealth;
     }
 
     public void BuyItem(Items item)
     {
-        if (cash < item.buyingPrice)
+        if (GameControl.instance.playerInfo.Money < item.buyingPrice)
         {
             Debug.Log("cant buy");
         }
         else if (item.isInventory)
         {
-            cash -= item.buyingPrice;
+            GameControl.instance.addMoney(-item.buyingPrice);
             setCashText();
-            inventory.Add(item);
+            GameControl.instance.addItemToInventory(item);
             SetInventoryText();
         }
         else if (item.canEat)
         {
-            if (CurrentHealth < StartingHealth)
+            if (GameControl.instance.playerInfo.Health < GameControl.instance.playerInfo.StartingHealth)
             {
-                cash -= item.buyingPrice;
+                GameControl.instance.addMoney(-item.buyingPrice);
                 setCashText();
-                CurrentHealth = Mathf.Clamp(CurrentHealth + item.energy, 0, StartingHealth);
-                FamilyHealthBar.fillAmount = CurrentHealth / StartingHealth;
+                GameControl.instance.playerInfo.Health = Mathf.Clamp(
+                    GameControl.instance.playerInfo.Health + item.energy, 0,
+                    GameControl.instance.playerInfo.StartingHealth);
+                HealthFillAmount();
             }
             else
             {
@@ -143,18 +145,17 @@ public class GameManager : MonoBehaviour
 
     public void SellItem(Items item)
     {
-        cash += item.sellingPrice;
+        GameControl.instance.addMoney(item.sellingPrice);
         setCashText();
-        int index = inventory.FindIndex(x => x.inventoryCode == item.inventoryCode);
-        inventory.RemoveAt(index);
+        GameControl.instance.removeItemFromInventory(item);
         SetInventoryText();
     }
 
     private void SetInventoryText()
     {
-        empanadasCountText.text = "Empanadas: " + inventory.FindAll(x => x.inventoryCode == EMPANADA).Count;
-        arepasCountText.text = "Arepas: " + inventory.FindAll(x => x.inventoryCode == AREPA).Count;
-        TintoCountText.text = "Tintos: " + inventory.FindAll(x => x.inventoryCode == TINTO).Count;
+        empanadasCountText.text = "Empanadas: " + GameControl.instance.CountItemByInventoryCode(EMPANADA);
+        arepasCountText.text = "Arepas: " + GameControl.instance.CountItemByInventoryCode(AREPA);
+        TintoCountText.text = "Tintos: " + GameControl.instance.CountItemByInventoryCode(TINTO);
     }
 
     public void StartGame()
@@ -169,9 +170,9 @@ public class GameManager : MonoBehaviour
 
     public void ClearInventory()
     {
-        inventory.Clear();
+        GameControl.instance.ClearInventory();
     }
-    
+
     public void StartLevel()
     {
         StartGame();
