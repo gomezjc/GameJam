@@ -22,14 +22,54 @@ public class InteractScript : MonoBehaviour
     [Header("Arrest Panel")]
     public GameObject BirbeButton;
     public GameObject ArrestButton;
-    
+
+    [Header("Charity Panel")] 
+    public TextMeshProUGUI charityText;
+    public int charityValue = 0;
 
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.E) && isTalking)
         {
-            openBuyDialog();
+            if (GameControl.instance.Charity)
+            {
+                openCharityDialog();
+            }
+            else
+            {
+                openBuyDialog();   
+            }
         }
+    }
+    
+    private void openCharityDialog()
+    {
+        if (people != null && peopleInteract != null)
+        {
+            itemText.text = "Me regala una moneda joven";
+            charityValue = peopleInteract.giveCharity();
+            if (charityValue > 0)
+            {
+                charityText.text = "Tome :" + charityValue.ToString();
+            }
+            else
+            {
+                charityText.text = "No tengo mi perro";
+            }
+            SetInteractText("",false); 
+            GameManager.instance.StopGame();
+            GameManager.instance.CharityPanel.SetActive(true);
+        }
+    }
+
+    public void ReceiveCharity()
+    {
+        GameControl.instance.addMoney(charityValue);
+        peopleInteract.CanBuy = false;
+        GameManager.instance.setCashText();
+        GameManager.instance.StartGame();
+        GameManager.instance.CharityPanel.SetActive(false);
+        resetBehaviour();
     }
 
     private void openBuyDialog()
@@ -163,6 +203,8 @@ public class InteractScript : MonoBehaviour
             people = null;
             peopleInteract = null;
         }
+
+        charityValue = 0;
         isTalking = false;
         SetInteractText("",false);
     }

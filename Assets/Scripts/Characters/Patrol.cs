@@ -13,7 +13,11 @@ namespace Characters
         public Gradient redColor;
         public Gradient greenColor;
         public Transform playerTarget;
+
+        public float currentSpeed;
         public float speed;
+        public float PersecutionSpeed;
+        
         public float startWaitTime;
         public float startFollowTime;
         public Transform[] moveSpots;
@@ -32,6 +36,9 @@ namespace Characters
         public bool canFollow;
         private void Start()
         {
+            Debug.Log("start patrol");
+            currentSpeed = speed;
+            canFollow = !GameControl.instance.Charity;
             Physics2D.queriesStartInColliders = false;
             waitTime = startWaitTime;
             followingTime = startFollowTime;
@@ -50,6 +57,7 @@ namespace Characters
         void followPlayer()
         {
             following = true;
+            currentSpeed = PersecutionSpeed;
             InvokeRepeating("followingPlayer", 0, 0.5f);
         }
 
@@ -72,6 +80,7 @@ namespace Characters
 
         public void cancelFollow()
         {
+            currentSpeed = speed;
             following = false;
             followingTime = startFollowTime;
             CancelInvoke("followingPlayer");
@@ -132,7 +141,7 @@ namespace Characters
                 return;
             }
 
-            Vector2 direction = ((Vector2) path.vectorPath[currentWayPoint] - rgb.position).normalized * speed;
+            Vector2 direction = ((Vector2) path.vectorPath[currentWayPoint] - rgb.position).normalized * currentSpeed;
             rgb.MovePosition(rgb.position + direction * Time.fixedDeltaTime);
             float distance = Vector2.Distance(rgb.position, path.vectorPath[currentWayPoint]);
 

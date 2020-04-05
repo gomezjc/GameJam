@@ -7,6 +7,8 @@ public class GameControl : MonoBehaviour
 {
     public static GameControl instance;
 
+    public bool Charity = false;
+
     public Items empanada;
     public Items tinto;
     public Items arepa;
@@ -30,7 +32,7 @@ public class GameControl : MonoBehaviour
     {
         Debug.Log("start Gamecontrol");
         playerInfo.Health = playerInfo.StartingHealth;
-        playerInfo.Money = 10000;
+        /*playerInfo.Money = 10000;
         playerInfo.Inventory.Add(instance.arepa);
         playerInfo.Inventory.Add(instance.arepa);
         playerInfo.Inventory.Add(instance.arepa);
@@ -39,7 +41,7 @@ public class GameControl : MonoBehaviour
         playerInfo.Inventory.Add(instance.empanada);
         playerInfo.Inventory.Add(instance.tinto);
         playerInfo.Inventory.Add(instance.tinto);
-        playerInfo.Inventory.Add(instance.tinto);
+        playerInfo.Inventory.Add(instance.tinto);*/
     }
 
     [System.Serializable]
@@ -92,5 +94,10 @@ public class GameControl : MonoBehaviour
     public void ClearInventory()
     {
         playerInfo.Inventory.Clear();
+    }
+
+    public void checkCharity()
+    {
+        instance.Charity = playerInfo.Inventory.Count == 0 && playerInfo.Money < tinto.buyingPrice;
     }
 }

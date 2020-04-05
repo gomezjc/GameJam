@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour
     public GameObject EndOfDay;
     public GameObject ArrestPanel;
     public GameObject GameOverPanel;
+    public GameObject CharityPanel;
 
     [Header("Texto")] public TextMeshProUGUI timeText;
     public TextMeshProUGUI cashText;
@@ -47,6 +48,8 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+        Debug.Log("start gamemanager");
+        GameControl.instance.checkCharity();
         HealthFillAmount();
         setDayText();
         setScoreTimer();
@@ -77,7 +80,7 @@ public class GameManager : MonoBehaviour
         setCashText();
     }
 
-    private void setCashText()
+    public void setCashText()
     {
         cashText.text = "$ " + GameControl.instance.playerInfo.Money;
     }
