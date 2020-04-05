@@ -91,6 +91,7 @@ public class InteractScript : MonoBehaviour
     {
         GameManager.instance.ArrestPanel.SetActive(false);
         GameManager.instance.ClearInventory();
+        GameManager.instance.nextLevel();
     }
 
     public void BuyItem()
