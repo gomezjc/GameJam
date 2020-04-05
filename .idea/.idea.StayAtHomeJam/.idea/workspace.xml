@@ -2,8 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="16c9029c-2256-495f-8565-7238bd1fa23d" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.StayAtHomeJam/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.StayAtHomeJam/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.StayAtHomeJam/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.StayAtHomeJam/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Characters/Patrol.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Characters/Patrol.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -15,19 +17,29 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Characters/CharacterMovement.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Managers/GameManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../empty/Assets/FieldOfView/Scripts/FieldOfView.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Characters/Enemy.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Characters/InteractScript.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Characters/PatrolPeople.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Characters/Patrol.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Misc/Items.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/Assets/Scripts/PlayerMovement.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Characters/CharacterMovement.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Misc/FieldOfViewEditor.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Characters/FieldOfView.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Characters/Enemy.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Characters/Patrol.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Characters/CharacterMovement.cs" />
+        <option value="$PROJECT_DIR$/Assets/InteractScript.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Characters/PatrolPeople.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Misc/ScriptableObjects/Items.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Misc/Items.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Managers/GameManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Misc/TextScript.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Characters/InteractScript.cs" />
       </list>
     </option>
   </component>
