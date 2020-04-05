@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
@@ -10,6 +11,7 @@ public class GameManager : MonoBehaviour
 
     [Header("Paneles")] public GameObject BuyPanel;
     public GameObject EndOfDay;
+    public GameObject ArrestPanel;
 
     [Header("Texto")] public TextMeshProUGUI timeText;
     public TextMeshProUGUI cashText;
@@ -39,6 +41,7 @@ public class GameManager : MonoBehaviour
         if (instance == null)
         {
             instance = this;
+            DontDestroyOnLoad(this);
         }
         else if (instance != this)
         {
@@ -71,6 +74,8 @@ public class GameManager : MonoBehaviour
             time--;
             setScoreTimer();
         }
+
+        nextLevel();
     }
 
     private void setScoreTimer()
@@ -93,6 +98,12 @@ public class GameManager : MonoBehaviour
     {
         day++;
         dayText.text = "Dia: " + day;
+       
+        if (day > 1)
+        {
+            StopGame();
+            EndOfDay.SetActive(true);
+        }
     }
 
     public void setFamilyHungry(float amount)
@@ -154,5 +165,16 @@ public class GameManager : MonoBehaviour
     public void StopGame()
     {
         Time.timeScale = 0;
+    }
+
+    public void ClearInventory()
+    {
+        inventory.Clear();
+    }
+    
+    public void StartLevel()
+    {
+        StartGame();
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }

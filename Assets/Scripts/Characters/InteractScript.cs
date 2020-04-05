@@ -7,12 +7,17 @@ public class InteractScript : MonoBehaviour
 {
     private PatrolPeople people;
     private InteractBuy peopleInteract;
+    private InteractArrest enemyArrest;
     private bool isTalking;
 
-    public GameObject interactText;
+    public TextMeshProUGUI interactText;
 
     public GameObject BuyButton;
     public GameObject CloseButton;
+
+    public GameObject BirbeButton;
+    public GameObject ArrestButton;
+    
     public TextMeshProUGUI itemText;
 
     private void Update()
@@ -41,6 +46,41 @@ public class InteractScript : MonoBehaviour
             GameManager.instance.StopGame();
             GameManager.instance.BuyPanel.SetActive(true);
         }
+    }
+    
+    private void openArrestDialog()
+    {
+        if (enemyArrest != null)
+        {
+            if (GameManager.instance.cash < 10000)
+            {
+                BirbeButton.SetActive(false);
+            }
+            GameManager.instance.StopGame();
+            GameManager.instance.ArrestPanel.SetActive(true);
+        }
+    }
+
+    public void BribeEnemy()
+    {
+        if (enemyArrest != null)
+        {
+            if (enemyArrest.BribeEnemy())
+            {
+                GameManager.instance.addCash(-10000);
+            }
+            else
+            {
+                getArrested();
+            }
+        }
+    }
+
+    public void getArrested()
+    {
+        GameManager.instance.ArrestPanel.SetActive(false);
+        GameManager.instance.ClearInventory();
+        GameManager.instance.nextLevel();
     }
 
     public void BuyItem()
@@ -88,8 +128,12 @@ public class InteractScript : MonoBehaviour
                 people = other.GetComponentInParent<PatrolPeople>();
                 people.stopPath();
                 isTalking = true;
-                interactText.SetActive(true);
+                SetInteractText("Press 'E' to interact",true);
             }
+        }else if (other.gameObject.CompareTag("Enemy"))
+        {
+            enemyArrest = other.GetComponent<InteractArrest>();
+            openArrestDialog();
         }
     }
 
@@ -98,6 +142,9 @@ public class InteractScript : MonoBehaviour
         if (other.gameObject.CompareTag("Person"))
         {
             resetBehaviour();
+        }else if (other.gameObject.CompareTag("Enemy"))
+        {
+
         }
     }
 
@@ -110,7 +157,24 @@ public class InteractScript : MonoBehaviour
             peopleInteract = null;
         }
         isTalking = false;
-        interactText.SetActive(false);
+        SetInteractText("",false);
     }
     
+    void resetBehaviourEnemy()
+    {
+        if (people != null && peopleInteract != null)
+        {
+            people.continuePath();
+            people = null;
+            peopleInteract = null;
+        }
+        isTalking = false;
+        SetInteractText("",false);
+    }
+
+    private void SetInteractText(String text, bool state)
+    {
+        interactText.text = text;
+        interactText.gameObject.SetActive(state);
+    }
 }
