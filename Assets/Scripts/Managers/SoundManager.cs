@@ -47,7 +47,7 @@ public class SoundManager : MonoBehaviour
 	public void PlayBackground(AudioClip backgroundClip)
 	{
 		AudioSource.Stop();
-		float volumen = 0.4f;
+		float volumen = 0.3f;
 		AudioSource.volume = volumen;
 		AudioSource.clip = null;
 		AudioSource.clip = backgroundClip;

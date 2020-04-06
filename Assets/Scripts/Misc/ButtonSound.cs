@@ -48,4 +48,15 @@ public class ButtonSound : MonoBehaviour
             text.color = originalTextcolor;
         }
     }
+    
+    public void onHoverDialog()
+    {
+        _rectTransform.localScale = new Vector3(1.1f, 1f, 1f);
+        SoundManager.instance.PlaySound("buttonIntro");
+    }
+    
+    public void unHoverDialog()
+    {
+        _rectTransform.localScale = new Vector3(1f, 1f, 1f);
+    }
 }

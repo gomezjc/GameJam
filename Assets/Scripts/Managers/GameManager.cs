@@ -140,7 +140,7 @@ public class GameManager : MonoBehaviour
     {
         if (GameControl.instance.playerInfo.Money < item.buyingPrice)
         {
-            //Debug.Log("cant buy");
+            SoundManager.instance.PlaySound("no");
         }
         else if (item.isInventory)
         {
@@ -164,7 +164,7 @@ public class GameManager : MonoBehaviour
             }
             else
             {
-                //Debug.Log("dont need");
+                SoundManager.instance.PlaySound("no");
             }
         }
     }

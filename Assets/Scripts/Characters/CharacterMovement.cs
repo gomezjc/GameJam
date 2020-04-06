@@ -16,18 +16,23 @@ namespace Characters
         public float _normalSpeed;
         public float _sprintSpeed;
 
+        [Header("Sound")] 
+        public AudioClip walkSound;
+        public AudioClip walkWithCar;
+
         private Vector2 _velocity;
         private Rigidbody2D _rigidbody2D;
         private Animator _animator;
         private bool inPersecution = false;
-        
-        public float redColorTime = 0f;
-        public float BlueColorTime = 0f;
+        private AudioSource sfx;
+        private float redColorTime = 0f;
+        private float BlueColorTime = 0f;
 
         private bool changeColorTime = false;
 
         private void Start()
         {
+            sfx = GetComponent<AudioSource>();
             currentSpeed = _normalSpeed;
             _rigidbody2D = GetComponent<Rigidbody2D>();
             _animator = GetComponentInChildren<Animator>();
@@ -44,7 +49,6 @@ namespace Characters
 
         public void StartPersecution()
         {
-            
             SoundManager.instance.PlayBackground(SoundManager.instance.persecutionBackground);
             changeColorTime = true;
             inPersecution = true;
@@ -60,6 +64,7 @@ namespace Characters
             {
                 SoundManager.instance.PlayBackground(SoundManager.instance.introBackground);
             }
+
             inPersecution = false;
             PersecutionImage.color = Color.clear;
         }
@@ -67,15 +72,38 @@ namespace Characters
         private void Update()
         {
             _animator.SetBool("Running", Input.GetAxisRaw("Horizontal") != 0 || Input.GetAxisRaw("Vertical") != 0);
+
+            if (_animator.GetBool("Running"))
+            {
+                if (!sfx.isPlaying)
+                {
+                    playSteps();
+                }
+            }
+
             currentSpeed = Input.GetButton("Sprint") ? _sprintSpeed : _normalSpeed;
             _velocity = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")).normalized *
                         currentSpeed;
         }
 
+        private void playSteps()
+        {
+            sfx.clip = null;
+            if (GameControl.instance.Charity)
+            {
+                sfx.clip = walkSound;
+            }
+            else
+            {
+                sfx.clip = walkWithCar;
+            }
+            sfx.volume = 0.4f;
+            sfx.Play();
+        }
+
         // Start is called before the first frame update
         private void FixedUpdate()
         {
-            
             if (inPersecution)
             {
                 if (redColorTime <= 0)
@@ -85,7 +113,7 @@ namespace Characters
                     changeColorTime = true;
                     PersecutionImage.color = ColorRed;
                 }
-                else if(BlueColorTime <= 0)
+                else if (BlueColorTime <= 0)
                 {
                     Debug.Log("azul");
                     BlueColorTime = 0.25f;
@@ -101,9 +129,8 @@ namespace Characters
                 {
                     redColorTime -= Time.fixedDeltaTime;
                 }
-
             }
-            
+
             _rigidbody2D.MovePosition(_rigidbody2D.position + _velocity * Time.fixedDeltaTime);
             if (Input.GetAxisRaw("Horizontal") != 0 || Input.GetAxisRaw("Vertical") != 0)
             {
