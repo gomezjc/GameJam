@@ -11,10 +11,12 @@ public class SpawnManager : MonoBehaviour
     public GameObject People;
     public List<Transform> SpawnPointsPolice;
     public List<Transform> SpawnPointsPeople;
-    
+
+    private Items[] itemsToPick;
     private float SpawnTimePolice = 60f;
     private float SpawnTimePeople = 10f;
-    public Items[] itemsToPick;
+    private int PercentageWantToBuy = 60;
+    
     private void Awake()
     {
         if (instance == null)
@@ -29,6 +31,7 @@ public class SpawnManager : MonoBehaviour
 
     private void Start()
     {
+        itemsToPick = new Items[3];
         itemsToPick[0] = GameControl.instance.arepa;
         itemsToPick[1] = GameControl.instance.empanada;
         itemsToPick[2] = GameControl.instance.tinto;
@@ -64,8 +67,20 @@ public class SpawnManager : MonoBehaviour
         // set variables of people
         PatrolPeople peoplePatrol = people.GetComponent<PatrolPeople>();
         InteractBuy interactBuy = people.GetComponentInChildren<InteractBuy>();
-        interactBuy.itemWantToBuy = itemsToPick[Random.Range(0,itemsToPick.Length)];
+        interactBuy.setItemWantToBuy(itemsToPick[Random.Range(0,itemsToPick.Length)]);
+
+        if (!WantBuy())
+        {
+            interactBuy.WantBuy(false);
+        }
+        
         peoplePatrol.moveSpots = GameManager.instance.MoveSpots;
         peoplePatrol.startPatrol();
+    }
+
+    private bool WantBuy()
+    {
+        int random = Random.Range(0, 100);
+        return random <= PercentageWantToBuy;
     }
 }

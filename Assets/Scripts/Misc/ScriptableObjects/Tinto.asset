@@ -15,7 +15,7 @@ MonoBehaviour:
   name: Tinto
   sellingPrice: 500
   buyingPrice: 200
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: 7cd9bddc43aa61846b359cfdc38d3d8a, type: 3}
   cantBuyMessage: 
   isInventory: 1
   inventoryCode: 1

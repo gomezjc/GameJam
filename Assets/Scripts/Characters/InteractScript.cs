@@ -26,6 +26,7 @@ public class InteractScript : MonoBehaviour
     [Header("Arrest Panel")] 
     public GameObject BirbeButton;
     public GameObject ArrestButton;
+    public TextMeshProUGUI BirbeText;
     public Sprite[] imagesCopBirbe;
     public Image imageArrest;
 
@@ -34,6 +35,17 @@ public class InteractScript : MonoBehaviour
     public int charityValue = 0;
     public Image imageCharity;
 
+    private String[] RandomBuyWords =
+    {
+        "Socio, deme _PRODUCTO_",
+        "Que gorobeta, vendame _PRODUCTO_",
+        "Regaleme _PRODUCTO_",
+        "Socito, le queda _PRODUCTO_",
+        "Parcero, vendame _PRODUCTO_, todo bien",
+        "A mi se me antoja _PRODUCTO_ sumerce",
+        "Oiga mano, deme _PRODUCTO_ si es tan amable"
+    };
+    
     private void Start()
     {
         if (GameControl.instance.Charity)
@@ -69,7 +81,7 @@ public class InteractScript : MonoBehaviour
     {
         if (people != null && peopleInteract != null)
         {
-            ItemCharityText.text = "Por favor, me regala una monedita";
+            ItemCharityText.text = "Por favor, me regala una monedita... cualquier cosita es cariño";
             charityValue = peopleInteract.giveCharity();
             if (charityValue > 0)
             {
@@ -91,7 +103,7 @@ public class InteractScript : MonoBehaviour
     public void ReceiveCharity()
     {
         GameControl.instance.addMoney(charityValue);
-        peopleInteract.CanBuy = false;
+        peopleInteract.WantBuy(false);
         GameManager.instance.setCashText();
         GameManager.instance.StartGame();
         GameManager.instance.CharityPanel.SetActive(false);
@@ -100,9 +112,11 @@ public class InteractScript : MonoBehaviour
 
     private void openBuyDialog()
     {
-        if (people != null)
+        if (people != null && peopleInteract != null)
         {
-            itemText.text = "Tiene: " + peopleInteract.itemWantToBuy.name;
+            String article = peopleInteract.itemWantToBuy.inventoryCode == GameManager.TINTO ? "un" : "una";
+            itemText.text = RandomBuyWords[Random.Range(0,RandomBuyWords.Length)].Replace("_PRODUCTO_",
+                article +" "+ peopleInteract.itemWantToBuy.name);
             if (GameControl.instance.hasItemInventoryByItem(peopleInteract.itemWantToBuy))
             {
                 BuyButton.SetActive(true);
@@ -130,7 +144,7 @@ public class InteractScript : MonoBehaviour
             {
                 if (GameControl.instance.playerInfo.Money < 10000)
                 {
-                    BirbeButton.SetActive(false);
+                    BirbeText.text = "No tienes suficiente dinero para sobornar";
                 }
 
                 imageArrest.sprite = imagesCopBirbe[Random.Range(0, imagesCopBirbe.Length)];
@@ -144,25 +158,28 @@ public class InteractScript : MonoBehaviour
     {
         if (enemy != null && enemyArrest != null)
         {
-            if (enemyArrest.BribeEnemy())
+            if (GameControl.instance.playerInfo.Money >= 10000)
             {
-                SetInteractText(
-                    "Soborno aceptado, sigue trabajando... este policia no te molestara mas",
-                    true,true);
-                GameManager.instance.addCash(-10000);
-                GameManager.instance.ArrestPanel.SetActive(false);
-                enemy.canFollow = false;
-                resetBehaviourEnemy();
-                GameManager.instance.StartGame();
-            }
-            else
-            {
-                SetInteractText(
-                    "Soborno no aceptado. Ahora no tienes productos y pasas el dia en la UPJ",
-                    true);
-                GameManager.instance.ArrestPanel.SetActive(false);
-                GameManager.instance.ClearInventory();
-                GameManager.instance.nextLevel();
+                if (enemyArrest.BribeEnemy())
+                {
+                    SetInteractText(
+                        "Soborno aceptado, sigue trabajando... este policia no te molestara mas",
+                        true,true);
+                    GameManager.instance.addCash(-10000);
+                    GameManager.instance.ArrestPanel.SetActive(false);
+                    enemy.canFollow = false;
+                    resetBehaviourEnemy();
+                    GameManager.instance.StartGame();
+                }
+                else
+                {
+                    SetInteractText(
+                        "Soborno no aceptado. Ahora no tienes productos y pasas el dia en la UPJ",
+                        true);
+                    GameManager.instance.ArrestPanel.SetActive(false);
+                    GameManager.instance.ClearInventory();
+                    GameManager.instance.nextLevel();
+                }
             }
         }
     }
@@ -187,7 +204,7 @@ public class InteractScript : MonoBehaviour
                 GameManager.instance.StartGame();
             }
 
-            peopleInteract.CanBuy = false;
+            peopleInteract.WantBuy(false);
             GameManager.instance.BuyPanel.SetActive(false);
             resetBehaviour();
         }
@@ -199,7 +216,7 @@ public class InteractScript : MonoBehaviour
         {
             GameManager.instance.StartGame();
             GameManager.instance.BuyPanel.SetActive(false);
-            peopleInteract.CanBuy = false;
+            peopleInteract.WantBuy(false);
             resetBehaviour();
         }
     }
@@ -208,13 +225,17 @@ public class InteractScript : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Person"))
         {
+            people = other.GetComponentInParent<PatrolPeople>();
             peopleInteract = other.GetComponentInParent<InteractBuy>();
+            people.stopPath();
             if (peopleInteract.CanBuy)
             {
-                people = other.GetComponentInParent<PatrolPeople>();
-                people.stopPath();
                 isTalking = true;
-                SetInteractText("Press 'E' to interact", true);
+                SetInteractText("Presiona 'E' para interactuar", true);
+            }
+            else
+            {
+                SetInteractText("Este no tiene hambre", true);
             }
         }
         else if (other.gameObject.CompareTag("Enemy"))
