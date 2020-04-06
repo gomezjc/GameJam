@@ -81,7 +81,7 @@ public class InteractScript : MonoBehaviour
     {
         if (people != null && peopleInteract != null)
         {
-            ItemCharityText.text = "Por favor, me regala una monedita... cualquier cosita es cariño";
+            ItemCharityText.text = "Por favor, me regala una monedita... mi Dios lo bengida";
             charityValue = peopleInteract.giveCharity();
             if (charityValue > 0)
             {
@@ -177,10 +177,14 @@ public class InteractScript : MonoBehaviour
                     GameManager.instance.SetInteractText(
                         "Soborno no aceptado. Ahora no tienes productos y pasas el dia en la UPJ",
                         true);
-                    GameManager.instance.ArrestPanel.SetActive(false);
                     GameManager.instance.ClearInventory();
-                    GameManager.instance.nextLevel();
+                    GameManager.instance.ArrestPanel.SetActive(false);
+                    GameManager.instance.nextLevel(false);
                 }
+            }
+            else
+            {
+                SoundManager.instance.PlaySound("no");
             }
         }
     }
@@ -190,9 +194,9 @@ public class InteractScript : MonoBehaviour
         GameManager.instance.SetInteractText(
             "Ahora no tienes productos y pasas el dia en la UPJ",
             true);
-        GameManager.instance.ArrestPanel.SetActive(false);
         GameManager.instance.ClearInventory();
-        GameManager.instance.nextLevel();
+        GameManager.instance.ArrestPanel.SetActive(false);
+        GameManager.instance.nextLevel(false);
     }
 
     public void BuyItem()

@@ -62,7 +62,7 @@ public class GameManager : MonoBehaviour
         {
             SoundManager.instance.PlayBackground(SoundManager.instance.gameplayBackground);
         }
-        
+
         HealthFillAmount();
         setDayText();
         setScoreTimer();
@@ -79,8 +79,8 @@ public class GameManager : MonoBehaviour
             time--;
             setScoreTimer();
         }
-
-        nextLevel();
+        SetInteractText("Ya termino el dia, compra lo necesario para tu negocio y familia", true);
+        nextLevel(false);
     }
 
     private void setScoreTimer()
@@ -99,8 +99,12 @@ public class GameManager : MonoBehaviour
         cashText.text = "$ " + GameControl.instance.playerInfo.Money;
     }
 
-    public void nextLevel()
+    public void nextLevel(bool eraseText = true)
     {
+        if (eraseText)
+        {
+            SetInteractText("", false);
+        }
         if (GameControl.instance.playerInfo.Health <= 0)
         {
             GameOVer();
@@ -112,7 +116,6 @@ public class GameManager : MonoBehaviour
             setDayText();
             if (GameControl.instance.playerInfo.Day > 1)
             {
-                SetInteractText("",false);
                 StopGame();
                 EndOfDay.SetActive(true);
             }
@@ -204,6 +207,7 @@ public class GameManager : MonoBehaviour
     public void ClearInventory()
     {
         GameControl.instance.ClearInventory();
+        SetInventoryText();
     }
 
     public void StartLevel()
