@@ -4,6 +4,9 @@ namespace Characters
 {
     public class CharacterMovement : MonoBehaviour
     {
+
+        public RuntimeAnimatorController NoCar;
+        public RuntimeAnimatorController WithCar;
         public float currentSpeed;
         public float _normalSpeed;
         public float _sprintSpeed;
@@ -15,6 +18,15 @@ namespace Characters
             currentSpeed = _normalSpeed;
             _rigidbody2D = GetComponent<Rigidbody2D>();
             _animator = GetComponentInChildren<Animator>();
+
+            if (GameControl.instance.Charity)
+            {
+                _animator.runtimeAnimatorController = NoCar;
+            }
+            else
+            {
+                _animator.runtimeAnimatorController = WithCar;
+            }
         }
 
         private void Update()
