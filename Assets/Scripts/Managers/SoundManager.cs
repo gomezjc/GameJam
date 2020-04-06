@@ -1,15 +1,21 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class SoundManager : MonoBehaviour
 {
     public static SoundManager instance;
-    public List<AudioClip> audioClips;
 
-    public AudioSource audioSourceBackground;
-    private AudioSource audioSource;
-
+    [Header("Backgound")] 
+    public AudioSource AudioSource;
+    public AudioClip sadBackground;
+    public AudioClip introBackground;
+    public AudioClip persecutionBackground;
+    
+    [SerializeField]
+    private AudioClip[] soundLibrary;
+    
 	void Awake()
 	{
 		if (SoundManager.instance == null)
@@ -20,22 +26,33 @@ public class SoundManager : MonoBehaviour
 		{
 			Destroy(gameObject);
 		}
-
-		//DontDestroyOnLoad(gameObject);
-        audioSource = GetComponent<AudioSource>();
 	}
 
-    public void playAudioClip(int index)
-    {
-        float volumen = 0.4f;
-        if(index == 3){
-            volumen = 0.3f;
-        }
-        audioSource.volume = volumen;
-		audioSource.clip = null;
-        audioSource.clip = audioClips[index];
-        audioSource.Play();
-    }
+	private void Start()
+	{
+		AudioSource = GetComponent<AudioSource>();
+	}
+
+	public void PlaySound(string soundName)
+	{
+		foreach (AudioClip sound in soundLibrary) {
+			if (sound.name == soundName)
+			{
+				AudioSource audioSource = gameObject.AddComponent<AudioSource>();
+				audioSource.PlayOneShot(sound);
+			}
+		}
+	}
+	
+	public void PlayBackground(AudioClip backgroundClip)
+	{
+		AudioSource.Stop();
+		float volumen = 0.4f;
+		AudioSource.volume = volumen;
+		AudioSource.clip = null;
+		AudioSource.clip = backgroundClip;
+		AudioSource.Play();
+	}
 
 
 }

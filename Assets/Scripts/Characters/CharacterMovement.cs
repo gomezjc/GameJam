@@ -44,12 +44,22 @@ namespace Characters
 
         public void StartPersecution()
         {
+            
+            SoundManager.instance.PlayBackground(SoundManager.instance.persecutionBackground);
             changeColorTime = true;
             inPersecution = true;
         }
 
         public void StopPersecution()
         {
+            if (GameControl.instance.Charity)
+            {
+                SoundManager.instance.PlayBackground(SoundManager.instance.sadBackground);
+            }
+            else
+            {
+                SoundManager.instance.PlayBackground(SoundManager.instance.introBackground);
+            }
             inPersecution = false;
             PersecutionImage.color = Color.clear;
         }

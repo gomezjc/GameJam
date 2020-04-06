@@ -53,6 +53,16 @@ public class GameManager : MonoBehaviour
     {
         //Debug.Log("start gamemanager");
         GameControl.instance.checkCharity();
+
+        if (GameControl.instance.Charity)
+        {
+            SoundManager.instance.PlayBackground(SoundManager.instance.sadBackground);
+        }
+        else
+        {
+            SoundManager.instance.PlayBackground(SoundManager.instance.introBackground);
+        }
+        
         HealthFillAmount();
         setDayText();
         setScoreTimer();
@@ -134,6 +144,7 @@ public class GameManager : MonoBehaviour
         }
         else if (item.isInventory)
         {
+            SoundManager.instance.PlaySound("sell");
             GameControl.instance.addMoney(-item.buyingPrice);
             setCashText();
             GameControl.instance.addItemToInventory(item);
@@ -143,6 +154,7 @@ public class GameManager : MonoBehaviour
         {
             if (GameControl.instance.playerInfo.Health < GameControl.instance.playerInfo.StartingHealth)
             {
+                SoundManager.instance.PlaySound("sell");
                 GameControl.instance.addMoney(-item.buyingPrice);
                 setCashText();
                 GameControl.instance.playerInfo.Health = Mathf.Clamp(
@@ -159,6 +171,7 @@ public class GameManager : MonoBehaviour
 
     public void SellItem(Items item)
     {
+        SoundManager.instance.PlaySound("sell");
         GameControl.instance.addMoney(item.sellingPrice);
         setCashText();
         GameControl.instance.removeItemFromInventory(item);

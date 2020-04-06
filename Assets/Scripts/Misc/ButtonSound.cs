@@ -6,9 +6,6 @@ public class ButtonSound : MonoBehaviour
 {
     public Color hoverColor;
     public Color originalTextcolor;
-    public AudioSource source;
-    public AudioClip hoverButton;
-    
     private Image image;
     private RectTransform _rectTransform;
     public TextMeshProUGUI[] textCollection;
@@ -24,7 +21,7 @@ public class ButtonSound : MonoBehaviour
     {
         _rectTransform.localScale = new Vector3(1.2f, 1.2f, 1.2f);
         image.color = hoverColor;
-        source.PlayOneShot(hoverButton);
+        SoundManager.instance.PlaySound("buttonMenu");
         foreach (var text in textCollection)
         {
             text.color = Color.white;
@@ -34,7 +31,7 @@ public class ButtonSound : MonoBehaviour
     public void onHoverText()
     {
         _rectTransform.localScale = new Vector3(1.2f, 1.2f, 1.2f);
-        source.PlayOneShot(hoverButton);
+        SoundManager.instance.PlaySound("buttonIntro");
     }
     
     public void unHoverText()
