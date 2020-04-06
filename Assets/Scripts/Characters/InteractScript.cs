@@ -23,8 +23,11 @@ public class InteractScript : MonoBehaviour
     public GameObject CloseButton;
     public Image imageBuy;
 
-    [Header("Arrest Panel")] public GameObject BirbeButton;
+    [Header("Arrest Panel")] 
+    public GameObject BirbeButton;
     public GameObject ArrestButton;
+    public Sprite[] imagesCopBirbe;
+    public Image imageArrest;
 
     [Header("Charity Panel")] public TextMeshProUGUI charityText;
     public TextMeshProUGUI ItemCharityText;
@@ -36,7 +39,13 @@ public class InteractScript : MonoBehaviour
         if (GameControl.instance.Charity)
         {
             SetInteractText(
-                "No tienes dinero ni productos que vender, debes recurrir a la caridad, es dificil pero al menos la policia no te persigue.",
+                "No tienes productos para vender, debes recurrir a la caridad, es dificil pero al menos la policia no te persigue.",
+                true,true);
+        }
+        else
+        {
+            SetInteractText(
+                "Presiona la tecla 'Espacio' para correr, OJO con la policia",
                 true,true);
         }
     }
@@ -124,6 +133,7 @@ public class InteractScript : MonoBehaviour
                     BirbeButton.SetActive(false);
                 }
 
+                imageArrest.sprite = imagesCopBirbe[Random.Range(0, imagesCopBirbe.Length)];
                 GameManager.instance.StopGame();
                 GameManager.instance.ArrestPanel.SetActive(true);
             }
@@ -137,7 +147,7 @@ public class InteractScript : MonoBehaviour
             if (enemyArrest.BribeEnemy())
             {
                 SetInteractText(
-                    "Soborno aceptado, sigue trabajando... este agente no te molestara mas",
+                    "Soborno aceptado, sigue trabajando... este policia no te molestara mas",
                     true,true);
                 GameManager.instance.addCash(-10000);
                 GameManager.instance.ArrestPanel.SetActive(false);
@@ -148,9 +158,11 @@ public class InteractScript : MonoBehaviour
             else
             {
                 SetInteractText(
-                    "Soborno no aceptado. Ahora no tienes productos y pasas el día en la UPJ",
+                    "Soborno no aceptado. Ahora no tienes productos y pasas el dia en la UPJ",
                     true);
-                getArrested();
+                GameManager.instance.ArrestPanel.SetActive(false);
+                GameManager.instance.ClearInventory();
+                GameManager.instance.nextLevel();
             }
         }
     }
@@ -158,7 +170,7 @@ public class InteractScript : MonoBehaviour
     public void getArrested()
     {
         SetInteractText(
-            "Ahora no tienes productos y pasas el día en la UPJ",
+            "Ahora no tienes productos y pasas el dia en la UPJ",
             true);
         GameManager.instance.ArrestPanel.SetActive(false);
         GameManager.instance.ClearInventory();

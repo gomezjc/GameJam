@@ -247,14 +247,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52de07e54b25e064d9c8ed9a9cc5b5c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  interactPanel: {fileID: 0}
   interactText: {fileID: 0}
+  images:
+  - {fileID: 21300000, guid: 3acedac39cf22494b9c6b092f7594ed4, type: 3}
+  - {fileID: 21300000, guid: a1b33ceeb1085a943a395104465e34d1, type: 3}
+  - {fileID: 21300000, guid: a0a5627fd82024f4294e8facfa1656ab, type: 3}
+  - {fileID: 21300000, guid: b02c75e203526dd43bc9f10f1d7cfd6b, type: 3}
+  - {fileID: 21300000, guid: ea8d26c8cfbbdc54ca1bdfcfb444aa77, type: 3}
+  - {fileID: 21300000, guid: f9334a46585a2514b915f0519e232552, type: 3}
+  - {fileID: 21300000, guid: 9c9a064a99271dc4e933e6de0a17545d, type: 3}
   itemText: {fileID: 0}
   BuyButton: {fileID: 0}
   CloseButton: {fileID: 0}
+  imageBuy: {fileID: 0}
   BirbeButton: {fileID: 0}
   ArrestButton: {fileID: 0}
+  imagesCopBirbe:
+  - {fileID: 21300000, guid: 1a60ff5552fa8b546b9e2e3fd357d444, type: 3}
+  - {fileID: 21300000, guid: 96db14daa328cec45a7564c2da7decc1, type: 3}
+  imagesCop:
+  - {fileID: 21300000, guid: 341624e419495b946b6a6f910c1e74e4, type: 3}
+  - {fileID: 21300000, guid: 6050954d93f545d4584475932e82210d, type: 3}
+  imageArrest: {fileID: 0}
   charityText: {fileID: 0}
+  ItemCharityText: {fileID: 0}
   charityValue: 0
+  imageCharity: {fileID: 0}
 --- !u!95 &542236111
 Animator:
   serializedVersion: 3
