@@ -45,12 +45,12 @@ namespace Characters
 
         void updatePath()
         {
-            Debug.Log("done");
+            //Debug.Log("done");
             if (seeker.IsDone())
             {
-                Debug.Log("done2");
+               // Debug.Log("done2");
                 randomSpot = Random.Range(0, moveSpots.Length);
-                Debug.Log(moveSpots[randomSpot].gameObject.name);
+                //Debug.Log(moveSpots[randomSpot].gameObject.name);
                 seeker.StartPath(rgb.position, moveSpots[randomSpot].position, OnPathComplete);
             }
         }

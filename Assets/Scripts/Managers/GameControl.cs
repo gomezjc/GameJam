@@ -30,7 +30,7 @@ public class GameControl : MonoBehaviour
 
     private void Start()
     {
-        Debug.Log("start Gamecontrol");
+        //Debug.Log("start Gamecontrol");
         playerInfo.Health = playerInfo.StartingHealth;
         playerInfo.Money = 10000;
         playerInfo.Inventory.Add(instance.arepa);

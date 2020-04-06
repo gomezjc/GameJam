@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -14,6 +15,7 @@ public class GameManager : MonoBehaviour
     public GameObject ArrestPanel;
     public GameObject GameOverPanel;
     public GameObject CharityPanel;
+    public GameObject InteractPanel;
 
     [Header("Texto")] public TextMeshProUGUI timeText;
     public TextMeshProUGUI cashText;
@@ -21,6 +23,7 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI empanadasCountText;
     public TextMeshProUGUI arepasCountText;
     public TextMeshProUGUI TintoCountText;
+    public TextMeshProUGUI InteractText;
     
     [Header("GamePlay")] 
     public float time;
@@ -49,7 +52,7 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        Debug.Log("start gamemanager");
+        //Debug.Log("start gamemanager");
         GameControl.instance.checkCharity();
         HealthFillAmount();
         setDayText();
@@ -126,7 +129,7 @@ public class GameManager : MonoBehaviour
     {
         if (GameControl.instance.playerInfo.Money < item.buyingPrice)
         {
-            Debug.Log("cant buy");
+            //Debug.Log("cant buy");
         }
         else if (item.isInventory)
         {
@@ -148,7 +151,7 @@ public class GameManager : MonoBehaviour
             }
             else
             {
-                Debug.Log("dont need");
+                //Debug.Log("dont need");
             }
         }
     }
@@ -193,5 +196,24 @@ public class GameManager : MonoBehaviour
     {
         StartGame();
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+    
+    public void SetInteractText(String text, bool state, int time = 0)
+    {
+        InteractPanel.SetActive(state);
+        InteractText.text = text;
+        InteractText.gameObject.SetActive(state);
+        if (time > 0)
+        {
+            StartCoroutine(CleanInteractText(time));
+        }
+    }
+    
+    IEnumerator CleanInteractText(int time)
+    {
+        //Debug.Log("Esperando para limpiar el mensaje");
+        yield return new WaitForSeconds(time);
+        //Debug.Log("Listo");
+        SetInteractText("",false);
     }
 }

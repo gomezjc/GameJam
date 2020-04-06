@@ -57,7 +57,7 @@ public class InteractScript : MonoBehaviour
         else
         {
             SetInteractText(
-                "Presiona la tecla 'Espacio' para correr, OJO con la policia",
+                "Presiona la tecla 'Espacio' para correr, OJO con la tomba",
                 true,true);
         }
     }
@@ -298,9 +298,9 @@ public class InteractScript : MonoBehaviour
     
     IEnumerator CleanInteractText()
     {
-        Debug.Log("Esperando para limpiar el mensaje");
+        //Debug.Log("Esperando para limpiar el mensaje");
         yield return new WaitForSeconds(5);
-        Debug.Log("Listo");
+       // Debug.Log("Listo");
         SetInteractText("",false);
     }
 }

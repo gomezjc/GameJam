@@ -49,9 +49,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   NoCar: {fileID: 9100000, guid: 6b07ea88e3d4f0b428f90026d3e6ba19, type: 2}
   WithCar: {fileID: 9100000, guid: eefd8234802a9b841b07923264d7cbfb, type: 2}
+  PersecutionImage: {fileID: 0}
+  ColorRed: {r: 0.8584906, g: 0.25990143, b: 0.14983091, a: 1}
+  ColorBlue: {r: 0.12001601, g: 0.3787085, b: 0.8207547, a: 1}
   currentSpeed: 0
   _normalSpeed: 10
   _sprintSpeed: 20
+  redColorTime: 0
+  BlueColorTime: 0
 --- !u!50 &4186321603918206240
 Rigidbody2D:
   serializedVersion: 4
@@ -263,12 +268,10 @@ MonoBehaviour:
   imageBuy: {fileID: 0}
   BirbeButton: {fileID: 0}
   ArrestButton: {fileID: 0}
+  BirbeText: {fileID: 0}
   imagesCopBirbe:
   - {fileID: 21300000, guid: 1a60ff5552fa8b546b9e2e3fd357d444, type: 3}
   - {fileID: 21300000, guid: 96db14daa328cec45a7564c2da7decc1, type: 3}
-  imagesCop:
-  - {fileID: 21300000, guid: 341624e419495b946b6a6f910c1e74e4, type: 3}
-  - {fileID: 21300000, guid: 6050954d93f545d4584475932e82210d, type: 3}
   imageArrest: {fileID: 0}
   charityText: {fileID: 0}
   ItemCharityText: {fileID: 0}
