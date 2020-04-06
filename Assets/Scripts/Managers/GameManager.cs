@@ -163,9 +163,9 @@ public class GameManager : MonoBehaviour
 
     private void SetInventoryText()
     {
-        empanadasCountText.text = "Empanadas: " + GameControl.instance.CountItemByInventoryCode(EMPANADA);
-        arepasCountText.text = "Arepas: " + GameControl.instance.CountItemByInventoryCode(AREPA);
-        TintoCountText.text = "Tintos: " + GameControl.instance.CountItemByInventoryCode(TINTO);
+        empanadasCountText.text = "" + GameControl.instance.CountItemByInventoryCode(EMPANADA);
+        arepasCountText.text = "" + GameControl.instance.CountItemByInventoryCode(AREPA);
+        TintoCountText.text = "" + GameControl.instance.CountItemByInventoryCode(TINTO);
     }
 
     public void GameOVer()
