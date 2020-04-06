@@ -116,7 +116,7 @@ namespace Characters
                     followingTime = startFollowTime;
                     if (!following)
                     {
-                        GameManager.instance.SetInteractText("La tomba!! corre!!!", true, 2);
+                        GameManager.instance.SetInteractText("La tomba!! corre!!!", true, 1);
                         followPlayer();
                     }
                 }

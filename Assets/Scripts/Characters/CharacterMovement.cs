@@ -20,13 +20,11 @@ namespace Characters
         private Rigidbody2D _rigidbody2D;
         private Animator _animator;
         private bool inPersecution = false;
-        private float vanishSpeed = 5f;
         
         public float redColorTime = 0f;
         public float BlueColorTime = 0f;
 
-        private bool redTime = false;
-        private bool blueTime = false;
+        private bool changeColorTime = false;
 
         private void Start()
         {
@@ -46,7 +44,7 @@ namespace Characters
 
         public void StartPersecution()
         {
-            redTime = true;
+            changeColorTime = true;
             inPersecution = true;
         }
 
@@ -74,20 +72,18 @@ namespace Characters
                 {
                     Debug.Log("rojo");
                     redColorTime = 0.25f;
-                    redTime = true;
-                    blueTime = false;
+                    changeColorTime = true;
                     PersecutionImage.color = ColorRed;
                 }
                 else if(BlueColorTime <= 0)
                 {
                     Debug.Log("azul");
                     BlueColorTime = 0.25f;
-                    blueTime = true;
-                    redTime = false;
+                    changeColorTime = false;
                     PersecutionImage.color = ColorBlue;
                 }
 
-                if (redTime)
+                if (changeColorTime)
                 {
                     BlueColorTime -= Time.fixedDeltaTime;
                 }

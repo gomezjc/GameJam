@@ -50,15 +50,15 @@ public class InteractScript : MonoBehaviour
     {
         if (GameControl.instance.Charity)
         {
-            SetInteractText(
+            GameManager.instance.SetInteractText(
                 "No tienes productos para vender, debes recurrir a la caridad, es dificil pero al menos la policia no te persigue.",
-                true,true);
+                true,5);
         }
         else
         {
-            SetInteractText(
+            GameManager.instance.SetInteractText(
                 "Presiona la tecla 'Espacio' para correr, OJO con la tomba",
-                true,true);
+                true,3);
         }
     }
 
@@ -94,7 +94,7 @@ public class InteractScript : MonoBehaviour
 
             isTalking = false;
             imageCharity.sprite = images[Random.Range(0, images.Length)];
-            SetInteractText("", false);
+            GameManager.instance.SetInteractText("", false);
             GameManager.instance.StopGame();
             GameManager.instance.CharityPanel.SetActive(true);
         }
@@ -130,7 +130,7 @@ public class InteractScript : MonoBehaviour
 
             isTalking = false;
             imageBuy.sprite = images[Random.Range(0, images.Length)];
-            SetInteractText("", false);
+            GameManager.instance.SetInteractText("", false);
             GameManager.instance.StopGame();
             GameManager.instance.BuyPanel.SetActive(true);
         }
@@ -147,6 +147,7 @@ public class InteractScript : MonoBehaviour
                     BirbeText.text = "No tienes suficiente dinero para sobornar";
                 }
 
+                GameManager.instance.SetInteractText("", false);
                 imageArrest.sprite = imagesCopBirbe[Random.Range(0, imagesCopBirbe.Length)];
                 GameManager.instance.StopGame();
                 GameManager.instance.ArrestPanel.SetActive(true);
@@ -162,18 +163,18 @@ public class InteractScript : MonoBehaviour
             {
                 if (enemyArrest.BribeEnemy())
                 {
-                    SetInteractText(
-                        "Soborno aceptado, sigue trabajando... este policia no te molestara mas",
-                        true,true);
                     GameManager.instance.addCash(-10000);
                     GameManager.instance.ArrestPanel.SetActive(false);
                     enemy.canFollow = false;
                     resetBehaviourEnemy();
                     GameManager.instance.StartGame();
+                    GameManager.instance.SetInteractText(
+                        "Soborno aceptado, sigue trabajando... este policia no te molestara mas",
+                        true,4);
                 }
                 else
                 {
-                    SetInteractText(
+                    GameManager.instance.SetInteractText(
                         "Soborno no aceptado. Ahora no tienes productos y pasas el dia en la UPJ",
                         true);
                     GameManager.instance.ArrestPanel.SetActive(false);
@@ -186,7 +187,7 @@ public class InteractScript : MonoBehaviour
 
     public void getArrested()
     {
-        SetInteractText(
+        GameManager.instance.SetInteractText(
             "Ahora no tienes productos y pasas el dia en la UPJ",
             true);
         GameManager.instance.ArrestPanel.SetActive(false);
@@ -231,11 +232,11 @@ public class InteractScript : MonoBehaviour
             if (peopleInteract.CanBuy)
             {
                 isTalking = true;
-                SetInteractText("Presiona 'E' para interactuar", true);
+                GameManager.instance.SetInteractText("Presiona 'E' para interactuar", true);
             }
             else
             {
-                SetInteractText("Este no tiene hambre", true);
+                GameManager.instance.SetInteractText("Este no tiene hambre", true);
             }
         }
         else if (other.gameObject.CompareTag("Enemy"))
@@ -272,7 +273,7 @@ public class InteractScript : MonoBehaviour
 
         charityValue = 0;
         isTalking = false;
-        SetInteractText("", false);
+        GameManager.instance.SetInteractText("", false);
     }
 
     void resetBehaviourEnemy()
@@ -283,24 +284,5 @@ public class InteractScript : MonoBehaviour
             enemy = null;
             enemyArrest = null;
         }
-    }
-
-    private void SetInteractText(String text, bool state, bool withTime=false)
-    {
-        interactPanel.SetActive(state);
-        interactText.text = text;
-        interactText.gameObject.SetActive(state);
-        if (withTime)
-        {
-            StartCoroutine(CleanInteractText());
-        }
-    }
-    
-    IEnumerator CleanInteractText()
-    {
-        //Debug.Log("Esperando para limpiar el mensaje");
-        yield return new WaitForSeconds(5);
-       // Debug.Log("Listo");
-        SetInteractText("",false);
     }
 }

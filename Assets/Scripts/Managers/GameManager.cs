@@ -24,12 +24,11 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI arepasCountText;
     public TextMeshProUGUI TintoCountText;
     public TextMeshProUGUI InteractText;
-    
-    [Header("GamePlay")] 
-    public float time;
+
+    [Header("GamePlay")] public float time;
     public Image FamilyHealthBar;
     public Transform[] MoveSpots;
-    
+
     [HideInInspector] public static int EMPANADA = 0;
     [HideInInspector] public static int TINTO = 1;
     [HideInInspector] public static int AREPA = 2;
@@ -70,9 +69,10 @@ public class GameManager : MonoBehaviour
             time--;
             setScoreTimer();
         }
+
         nextLevel();
     }
-    
+
     private void setScoreTimer()
     {
         timeText.text = string.Format("{0:0}:{1:00}", Mathf.Floor(time / 60), time % 60);
@@ -197,23 +197,29 @@ public class GameManager : MonoBehaviour
         StartGame();
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
-    
+
     public void SetInteractText(String text, bool state, int time = 0)
     {
         InteractPanel.SetActive(state);
         InteractText.text = text;
         InteractText.gameObject.SetActive(state);
+
+        if (!state)
+        {
+            StopCoroutine("CleanInteractText");
+        }
+
         if (time > 0)
         {
             StartCoroutine(CleanInteractText(time));
         }
     }
-    
+
     IEnumerator CleanInteractText(int time)
     {
-        //Debug.Log("Esperando para limpiar el mensaje");
+        Debug.Log("Esperando para limpiar el mensaje");
         yield return new WaitForSeconds(time);
-        //Debug.Log("Listo");
-        SetInteractText("",false);
+        Debug.Log("Listo");
+        SetInteractText("", false);
     }
 }
