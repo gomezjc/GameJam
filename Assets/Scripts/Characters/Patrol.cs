@@ -34,10 +34,13 @@ namespace Characters
         public float followingTime;
 
         public bool canFollow;
+
+        private Animator _animator;
         
         public void StartPatrol()
         {
             Debug.Log("start patrol");
+            _animator = GetComponentInChildren<Animator>();
             currentSpeed = speed;
             canFollow = !GameControl.instance.Charity;
             Physics2D.queriesStartInColliders = false;
@@ -136,17 +139,19 @@ namespace Characters
                 }
                 else
                 {
+                    _animator.SetBool("Walking",false);
                     GFX.transform.Rotate(Vector3.forward * rotationSpeed * Time.fixedDeltaTime);
                     waitTime -= Time.fixedDeltaTime;
                 }
                 return;
             }
 
+            _animator.SetBool("Walking",true);
             Vector2 direction = ((Vector2) path.vectorPath[currentWayPoint] - rgb.position).normalized * currentSpeed;
             rgb.MovePosition(rgb.position + direction * Time.fixedDeltaTime);
             float distance = Vector2.Distance(rgb.position, path.vectorPath[currentWayPoint]);
 
-            Vector3 dir = (Vector2)path.vectorPath[path.vectorPath.Count - 1] - rgb.position;
+            Vector3 dir = (Vector2)path.vectorPath[currentWayPoint] - rgb.position;
             float angle = Mathf.Atan2(dir.y,dir.x) * Mathf.Rad2Deg;
             GFX.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
             

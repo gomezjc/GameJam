@@ -21,14 +21,18 @@ namespace Characters
         private Path path;
         private int randomSpot;
         
+        private Animator _animator;
+        
         public void startPatrol()
         {
+            _animator = GetComponentInChildren<Animator>();
             waitTime = startWaitTime;
             updatePath();
         }
 
         public void stopPath()
         {
+            _animator.SetBool("Walking",false);
             actualPath = path;
             path = null;
         }
@@ -74,17 +78,19 @@ namespace Characters
                 }
                 else
                 {
+                    _animator.SetBool("Walking",false);
                     waitTime -= Time.fixedDeltaTime;
                 }
 
                 return;
             }
 
+            _animator.SetBool("Walking",true);
             Vector2 direction = ((Vector2) path.vectorPath[currentWayPoint] - rgb.position).normalized * speed;
             rgb.MovePosition(rgb.position + direction * Time.fixedDeltaTime);
             float distance = Vector2.Distance(rgb.position, path.vectorPath[currentWayPoint]);
 
-            Vector3 dir = (Vector2) path.vectorPath[path.vectorPath.Count - 1] - rgb.position;
+            Vector3 dir = (Vector2) path.vectorPath[currentWayPoint] - rgb.position;
             float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
             GFX.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
 

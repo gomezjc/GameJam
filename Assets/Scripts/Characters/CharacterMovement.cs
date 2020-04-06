@@ -9,14 +9,17 @@ namespace Characters
         public float _sprintSpeed;
         private Vector2 _velocity;
         private Rigidbody2D _rigidbody2D;
+        private Animator _animator;
         private void Start()
         {
             currentSpeed = _normalSpeed;
             _rigidbody2D = GetComponent<Rigidbody2D>();
+            _animator = GetComponentInChildren<Animator>();
         }
 
         private void Update()
         {
+            _animator.SetBool("Running",Input.GetAxisRaw("Horizontal") != 0 || Input.GetAxisRaw("Vertical") != 0);
             currentSpeed = Input.GetButton("Sprint") ? _sprintSpeed : _normalSpeed;
             _velocity = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")).normalized * currentSpeed;
         }

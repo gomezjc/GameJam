@@ -12,8 +12,8 @@ public class SpawnManager : MonoBehaviour
     public List<Transform> SpawnPointsPolice;
     public List<Transform> SpawnPointsPeople;
     
-    private float SpawnTimePolice = 10f;
-    private float SpawnTimePeople = 5f;
+    private float SpawnTimePolice = 60f;
+    private float SpawnTimePeople = 20f;
     
     private void Awake()
     {

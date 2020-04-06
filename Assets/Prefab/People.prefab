@@ -93,6 +93,7 @@ GameObject:
   - component: {fileID: 303527526518798988}
   - component: {fileID: 303527526518798986}
   - component: {fileID: 1884261365}
+  - component: {fileID: 1187898545}
   m_Layer: 0
   m_Name: Gfx
   m_TagString: Person
@@ -151,8 +152,8 @@ SpriteRenderer:
   m_SortingLayerID: -1110570005
   m_SortingLayer: 4
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: bc355479cfd25e9408bf17e962dfbcbb, type: 3}
-  m_Color: {r: 0.07098818, g: 0, b: 1, a: 1}
+  m_Sprite: {fileID: 21300000, guid: b202af6c8fe05d4419ca2649bd52d1ee, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -213,3 +214,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemWantToBuy: {fileID: 11400000, guid: b4ff1515f8d84e140947709499b64e86, type: 2}
   CanBuy: 1
+--- !u!95 &1187898545
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 303527526518798984}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 57f5b560cc0456145bb0ca973d70ef8c, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
