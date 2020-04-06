@@ -55,5 +55,13 @@ public class SoundManager : MonoBehaviour
 		AudioSource.Play();
 	}
 
+	public void volumeBackground(float volume)
+	{
+		if (AudioSource.isPlaying)
+		{
+			AudioSource.volume = volume;
+		}
+	}
+
 
 }

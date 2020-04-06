@@ -56,9 +56,17 @@ public class InteractScript : MonoBehaviour
         }
         else
         {
-            GameManager.instance.SetInteractText(
-                "Presiona la tecla 'Espacio' para correr, OJO con la tomba",
-                true,3);
+            if (GameControl.instance.playerInfo.Day <= 2)
+            {
+                GameManager.instance.SetInteractText(
+                    "Presiona la tecla 'Espacio' para correr, OJO con la tomba",
+                    true,3);   
+            }else if (GameControl.instance.playerInfo.Health <= 30)
+            {
+                GameManager.instance.SetInteractText(
+                    "tu familia esta pasando hambre, recuerda comprar comida al final del dia",
+                    true,5);
+            }
         }
     }
 

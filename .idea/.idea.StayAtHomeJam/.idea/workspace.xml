@@ -3,11 +3,15 @@
   <component name="ChangeListManager">
     <list default="true" id="16c9029c-2256-495f-8565-7238bd1fa23d" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.StayAtHomeJam/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.StayAtHomeJam/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/UI/Interface/signoPesos.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Assets/UI/Interface/signoPesos.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/UI/Interface/siguienteBotonTienda.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Assets/UI/Interface/siguienteBotonTienda.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/UI/Interface/vidaBarra.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Assets/UI/Interface/vidaBarra.png.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Characters/CharacterMovement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Characters/CharacterMovement.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Characters/InteractScript.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Characters/InteractScript.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Characters/Patrol.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Characters/Patrol.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Managers/GameControl.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Managers/GameControl.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Managers/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Managers/GameManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Managers/SoundManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Managers/SoundManager.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -80,12 +84,12 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/Characters/InteractBuy.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Managers/SpawnManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Misc/ButtonSound.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Managers/SoundManager.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Characters/CharacterMovement.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Characters/InteractScript.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Managers/GameControl.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Characters/PatrolPeople.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Characters/Patrol.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Managers/GameControl.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Characters/InteractScript.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Managers/SoundManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Characters/CharacterMovement.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Managers/GameManager.cs" />
       </list>
     </option>
@@ -149,10 +153,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="634" y="224" key="VCS.ChangeListViewerDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1586008546591" />
-    <state x="613" y="252" width="693" height="536" key="find.popup" timestamp="1586210903301">
+    <state x="613" y="252" width="693" height="536" key="find.popup" timestamp="1586216823681">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="613" y="252" width="693" height="536" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1586210903301" />
+    <state x="613" y="252" width="693" height="536" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1586216823681" />
     <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1586060504235">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

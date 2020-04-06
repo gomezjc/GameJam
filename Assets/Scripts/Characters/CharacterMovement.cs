@@ -84,6 +84,11 @@ namespace Characters
                 sfx.Stop();
             }
 
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                GameManager.instance.PauseGame();
+            }
+
             currentSpeed = Input.GetButton("Sprint") ? _sprintSpeed : _normalSpeed;
             _velocity = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")).normalized *
                         currentSpeed;

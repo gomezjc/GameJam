@@ -16,6 +16,7 @@ public class GameManager : MonoBehaviour
     public GameObject GameOverPanel;
     public GameObject CharityPanel;
     public GameObject InteractPanel;
+    public GameObject PausePanel;
 
     [Header("Texto")] public TextMeshProUGUI timeText;
     public TextMeshProUGUI cashText;
@@ -25,6 +26,8 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI TintoCountText;
     public TextMeshProUGUI InteractText;
 
+    [Header("GameOver")] public TextMeshProUGUI gameOverText;
+    
     [Header("GamePlay")] public float time;
     public Image FamilyHealthBar;
     public Transform[] MoveSpots;
@@ -190,8 +193,34 @@ public class GameManager : MonoBehaviour
 
     public void GameOVer()
     {
+        SoundManager.instance.PlayBackground(SoundManager.instance.sadBackground);
         GameOverPanel.SetActive(true);
+        gameOverText.text = "llegaste hasta el dia "+GameControl.instance.playerInfo.Day;
         StopGame();
+    }
+
+    public void PauseGame()
+    {
+        PausePanel.SetActive(true);
+        SoundManager.instance.volumeBackground(0.1f);
+        StopGame();
+    }
+
+    public void ResumeGame()
+    {
+        PausePanel.SetActive(false);
+        SoundManager.instance.volumeBackground(0.3f);
+        StartGame();
+    }
+    
+    public void HomeScreen()
+    {
+        // volver a pantalla inicial
+    }
+
+    public void QuitGame()
+    {
+        Application.Quit();
     }
 
     public void StartGame()
