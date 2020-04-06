@@ -34,7 +34,8 @@ namespace Characters
         public float followingTime;
 
         public bool canFollow;
-        private void Start()
+        
+        public void StartPatrol()
         {
             Debug.Log("start patrol");
             currentSpeed = speed;

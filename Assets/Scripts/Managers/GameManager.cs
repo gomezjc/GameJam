@@ -21,11 +21,12 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI empanadasCountText;
     public TextMeshProUGUI arepasCountText;
     public TextMeshProUGUI TintoCountText;
-
-    [Header("Gameplay")] public float time;
-
-    [Header("GamePlay")] public Image FamilyHealthBar;
-
+    
+    [Header("GamePlay")] 
+    public float time;
+    public Image FamilyHealthBar;
+    public Transform[] MoveSpots;
+    
     [HideInInspector] public static int EMPANADA = 0;
     [HideInInspector] public static int TINTO = 1;
     [HideInInspector] public static int AREPA = 2;

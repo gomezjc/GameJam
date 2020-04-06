@@ -21,7 +21,7 @@ namespace Characters
         private Path path;
         private int randomSpot;
         
-        private void Start()
+        public void startPatrol()
         {
             waitTime = startWaitTime;
             updatePath();
@@ -41,9 +41,12 @@ namespace Characters
 
         void updatePath()
         {
+            Debug.Log("done");
             if (seeker.IsDone())
             {
+                Debug.Log("done2");
                 randomSpot = Random.Range(0, moveSpots.Length);
+                Debug.Log(moveSpots[randomSpot].gameObject.name);
                 seeker.StartPath(rgb.position, moveSpots[randomSpot].position, OnPathComplete);
             }
         }

@@ -69,8 +69,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1110570005
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: bc355479cfd25e9408bf17e962dfbcbb, type: 3}
   m_Color: {r: 1, g: 0, b: 0, a: 1}
@@ -91,7 +91,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8235110232632229775}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -239,8 +239,8 @@ MonoBehaviour:
     m_NumAlphaKeys: 2
   greenColor:
     serializedVersion: 2
-    key0: {r: 0.20879316, g: 0.6415094, b: 0.27477607, a: 1}
-    key1: {r: 0.20879316, g: 0.6415094, b: 0.27477607, a: 1}
+    key0: {r: 0.13238695, g: 0.26345113, b: 0.8018868, a: 1}
+    key1: {r: 0.13238695, g: 0.26345113, b: 0.8018868, a: 1}
     key2: {r: 0, g: 0, b: 0, a: 0}
     key3: {r: 0, g: 0, b: 0, a: 0}
     key4: {r: 0, g: 0, b: 0, a: 0}
@@ -269,19 +269,10 @@ MonoBehaviour:
   playerTarget: {fileID: 0}
   currentSpeed: 0
   speed: 10
-  PersecutionSpeed: 15
+  PersecutionSpeed: 12
   startWaitTime: 5
   startFollowTime: 3
-  moveSpots:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  moveSpots: []
   nextWayPointDistance: 1
   seeker: {fileID: 8235110233401042132}
   rgb: {fileID: 8235110232632229763}
@@ -336,7 +327,7 @@ LineRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 0}
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -353,9 +344,9 @@ LineRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingLayerID: -1110570005
+  m_SortingLayer: 4
+  m_SortingOrder: 1
   m_Positions:
   - {x: 0, y: 0, z: 0}
   - {x: 0, y: 0, z: 0}

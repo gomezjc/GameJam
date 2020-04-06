@@ -2,7 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="16c9029c-2256-495f-8565-7238bd1fa23d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Characters/InteractBuy.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Characters/InteractBuy.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.StayAtHomeJam/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.StayAtHomeJam/.idea/contentModel.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.StayAtHomeJam/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.StayAtHomeJam/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefab/Enemy.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefab/Enemy.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefab/People.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefab/People.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Characters/Patrol.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Characters/Patrol.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Characters/PatrolPeople.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Characters/PatrolPeople.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Managers/GameControl.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Managers/GameControl.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Managers/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Managers/GameManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Managers/SoundManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Managers/SoundManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/UI.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/UI/WhiteSquare.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/UI/WhiteSquare.jpg.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -13,22 +26,32 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Characters/CharacterMovement.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/AstarPathfindingProject/Core/Misc/AstarDebugger.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Managers/GameControl.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Misc/ScriptableObjects/Pollo.asset" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Managers/GameManager.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Characters/InteractArrest.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../TopDownShooter/Assets/Scripts/Managers/GameManager.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Characters/InteractScript.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/AstarPathfindingProject/Core/Nodes/GraphNode.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/AstarPathfindingProject/ExampleScenes/Example12_Procedural/ProceduralGridMover.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../empty/Assets/FieldOfView/Scripts/FieldOfView.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Characters/InteractBuy.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Characters/Patrol.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Managers/SpawnManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Characters/CharacterMovement.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Prefab/Enemy.prefab" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../TopDownShooter/Assets/Scripts/Enemy/EnemyHealth.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../TopDownShooter/Assets/Scripts/Base/ShootableObject.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Characters/InteractArrest.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Characters/PatrolPeople.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/AstarPathfindingProject/Core/GraphUpdateScene.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Misc/Items.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/AstarPathfindingProject/Core/AstarMath.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/AstarPathfindingProject/Core/Nodes/GraphNode.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../empty/Assets/FieldOfView/Scripts/FieldOfView.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Characters/InteractBuy.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Characters/Patrol.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../TopDownShooter/Assets/Scripts/Managers/SoundManager.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/AstarPathfindingProject/PackageTools/Editor/EditorBase.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/AstarPathfindingProject/ExampleScenes/ExampleScripts/ObjectPlacer.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Managers/SoundManager.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -39,16 +62,18 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/Characters/Enemy.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Characters/CharacterMovement.cs" />
         <option value="$PROJECT_DIR$/Assets/InteractScript.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Characters/PatrolPeople.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Misc/ScriptableObjects/Items.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Misc/TextScript.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Characters/InteractArrest.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Misc/Items.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Characters/Patrol.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Managers/GameControl.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Characters/InteractScript.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Managers/GameManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Characters/InteractBuy.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Managers/SoundManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Managers/GameManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Characters/Patrol.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Characters/PatrolPeople.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Managers/GameControl.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Managers/SpawnManager.cs" />
       </list>
     </option>
   </component>
@@ -111,10 +136,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="634" y="224" key="VCS.ChangeListViewerDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1586008546591" />
-    <state x="613" y="252" width="693" height="536" key="find.popup" timestamp="1586104371993">
+    <state x="613" y="252" width="693" height="536" key="find.popup" timestamp="1586118511820">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="613" y="252" width="693" height="536" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1586104371993" />
+    <state x="613" y="252" width="693" height="536" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1586118511820" />
     <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1586060504235">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

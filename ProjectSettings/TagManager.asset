@@ -46,6 +46,12 @@ TagManager:
   - name: Floor
     uniqueID: 1316071019
     locked: 0
+  - name: Street
+    uniqueID: 762191367
+    locked: 0
+  - name: Buildings
+    uniqueID: 242742223
+    locked: 0
   - name: Player
     uniqueID: 3184397291
     locked: 0
