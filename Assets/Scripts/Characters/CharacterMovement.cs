@@ -62,7 +62,7 @@ namespace Characters
             }
             else
             {
-                SoundManager.instance.PlayBackground(SoundManager.instance.introBackground);
+                SoundManager.instance.PlayBackground(SoundManager.instance.gameplayBackground);
             }
 
             inPersecution = false;
@@ -79,6 +79,9 @@ namespace Characters
                 {
                     playSteps();
                 }
+            }else if (sfx.isPlaying)
+            {
+                sfx.Stop();
             }
 
             currentSpeed = Input.GetButton("Sprint") ? _sprintSpeed : _normalSpeed;

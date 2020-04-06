@@ -60,7 +60,7 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            SoundManager.instance.PlayBackground(SoundManager.instance.introBackground);
+            SoundManager.instance.PlayBackground(SoundManager.instance.gameplayBackground);
         }
         
         HealthFillAmount();

@@ -3,71 +3,18 @@
   <component name="ChangeListManager">
     <list default="true" id="16c9029c-2256-495f-8565-7238bd1fa23d" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.StayAtHomeJam/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.StayAtHomeJam/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Assets/UI/arepaIcon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Assets/UI/arepaIcon.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Assets/UI/arepaconchorizo.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Assets/UI/arepaconchorizo.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Assets/UI/arroz.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Assets/UI/arroz.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Assets/UI/carro.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Assets/UI/carro.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Assets/UI/cartel.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Assets/UI/cartel.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Assets/UI/casa.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Assets/UI/casa.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Assets/UI/empanadaFinal.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Assets/UI/empanadaFinal.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Assets/UI/empanadeIcon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Assets/UI/empanadeIcon.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Assets/UI/family_icon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Assets/UI/family_icon.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Assets/UI/fruta.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Assets/UI/fruta.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Assets/UI/intro.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Assets/UI/intro.jpg.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Assets/UI/persona1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Assets/UI/persona1.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Assets/UI/persona2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Assets/UI/persona2.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Assets/UI/persona3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Assets/UI/persona3.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Assets/UI/persona4.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Assets/UI/persona4.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Assets/UI/persona5.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Assets/UI/persona5.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Assets/UI/persona6.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Assets/UI/persona6.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Assets/UI/persona7.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Assets/UI/persona7.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Assets/UI/poli1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Assets/UI/poli1.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Assets/UI/poli1v2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Assets/UI/poli1v2.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Assets/UI/poli2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Assets/UI/poli2.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Assets/UI/poli2v2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Assets/UI/poli2v2.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Assets/UI/posho.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Assets/UI/posho.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Assets/UI/signoPesos.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Assets/UI/signoPesos.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Assets/UI/siguienteBotonTienda.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Assets/UI/siguienteBotonTienda.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Assets/UI/tinto.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Assets/UI/tinto.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Assets/UI/tintoIcon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Assets/UI/tintoIcon.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Assets/UI/universidad.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Assets/UI/universidad.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Assets/UI/vidaBarra.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Assets/UI/vidaBarra.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Music/city_background.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Music/city_background.mp3.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Music/intro.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Music/intro.mp3.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Music/pursuit_music.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Music/pursuit_music.mp3.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Music/unhappy.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Music/unhappy.mp3.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Characters/CharacterMovement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Characters/CharacterMovement.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Managers/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Managers/GameManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Managers/SoundManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Managers/SoundManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Misc/ButtonSound.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Misc/ButtonSound.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/tempFiles/esta.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/tempFiles/esta.png.meta" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -101,6 +48,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Characters/InteractBuy.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Shaders/TMP_SDF-Mobile Overlay.shader" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/AstarPathfindingProject/Core/Misc/StackPool.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Shaders/TMP_SDF-Surface-Mobile.shader" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Characters/Patrol.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Managers/SpawnManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Misc/ButtonSound.cs" root0="FORCE_HIGHLIGHTING" />
@@ -142,9 +90,9 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/Characters/Patrol.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Characters/InteractScript.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Misc/ButtonSound.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Managers/GameManager.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Managers/SoundManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Managers/GameControl.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Managers/SoundManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Managers/GameManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Characters/CharacterMovement.cs" />
       </list>
     </option>
@@ -208,10 +156,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="634" y="224" key="VCS.ChangeListViewerDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1586008546591" />
-    <state x="613" y="252" width="693" height="536" key="find.popup" timestamp="1586189017362">
+    <state x="613" y="252" width="693" height="536" key="find.popup" timestamp="1586210903301">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="613" y="252" width="693" height="536" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1586189017362" />
+    <state x="613" y="252" width="693" height="536" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1586210903301" />
     <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1586060504235">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

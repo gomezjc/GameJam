@@ -421,7 +421,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5803247}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 55.88, y: 71.476, z: 5}
+  m_LocalPosition: {x: 55.88, y: 71.476, z: 10}
   m_LocalScale: {x: 2, y: 2, z: 3}
   m_Children: []
   m_Father: {fileID: 254305958}
@@ -5376,7 +5376,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 55.68, y: 49.4, z: -10}
+  m_LocalPosition: {x: 55.68, y: 42.8, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 795474239}
@@ -15278,6 +15278,7 @@ MonoBehaviour:
   introBackground: {fileID: 8300000, guid: eda0826b5bfd5fb489a6aa38ef45e992, type: 3}
   persecutionBackground: {fileID: 8300000, guid: b02358b32ef5c474abe0d9f520faf2b2,
     type: 3}
+  gameplayBackground: {fileID: 8300000, guid: 1f26851822f10d442a4ba8f69dad559a, type: 3}
   soundLibrary:
   - {fileID: 8300000, guid: ac7a52a3a8178a542bf9340b87a8c1a8, type: 3}
   - {fileID: 8300000, guid: c0a37426798525342bde4cb913250476, type: 3}
@@ -23853,7 +23854,7 @@ PrefabInstance:
     - target: {fileID: 4186321603918206243, guid: 720697972029f994bbfbecc6ff103a28,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 49.4
+      value: 42.8
       objectReference: {fileID: 0}
     - target: {fileID: 4186321603918206243, guid: 720697972029f994bbfbecc6ff103a28,
         type: 3}
@@ -23904,6 +23905,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 4186321605320678061, guid: 720697972029f994bbfbecc6ff103a28,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4186321605320678061, guid: 720697972029f994bbfbecc6ff103a28,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4186321605320678062, guid: 720697972029f994bbfbecc6ff103a28,
         type: 3}

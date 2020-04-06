@@ -12,7 +12,8 @@ public class SoundManager : MonoBehaviour
     public AudioClip sadBackground;
     public AudioClip introBackground;
     public AudioClip persecutionBackground;
-    
+    public AudioClip gameplayBackground;
+
     [SerializeField]
     private AudioClip[] soundLibrary;
     
