@@ -236,7 +236,7 @@ public class InteractScript : MonoBehaviour
             }
             else
             {
-                GameManager.instance.SetInteractText("Este no tiene hambre", true);
+                GameManager.instance.SetInteractText("No, gracias", true);
             }
         }
         else if (other.gameObject.CompareTag("Enemy"))

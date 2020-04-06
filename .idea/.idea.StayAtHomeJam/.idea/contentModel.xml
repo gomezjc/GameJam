@@ -224,6 +224,7 @@
             <e p="SpawnManager.cs" t="Include" />
           </e>
           <e p="Misc" t="Include">
+            <e p="ButtonSound.cs" t="Include" />
             <e p="Items.cs" t="Include" />
           </e>
         </e>

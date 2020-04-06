@@ -102,6 +102,7 @@ public class GameManager : MonoBehaviour
             setDayText();
             if (GameControl.instance.playerInfo.Day > 1)
             {
+                SetInteractText("",false);
                 StopGame();
                 EndOfDay.SetActive(true);
             }
