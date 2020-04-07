@@ -1,18 +1,53 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class IntroManager : MonoBehaviour
 {
+
+    public GameObject panelStart;
+    public GameObject panelCredits;
     // Start is called before the first frame update
-    void Start()
+
+
+    private void Start()
+    {
+        if (GameControl.instance != null)
+        {
+            Destroy(GameControl.instance.gameObject);
+        }
+    }
+
+    public void StartPanelIntro()
+    {
+        panelCredits.SetActive(false);
+        panelStart.SetActive(true);
+    }
+
+    public void offPanels()
+    {
+        panelCredits.SetActive(false);
+        panelStart.SetActive(false);
+    }
+    
+    public void StartGame()
+    {
+        SceneManager.LoadScene(1);
+    }
+
+    public void ShowCredits()
+    {
+        panelCredits.SetActive(true);
+        panelStart.SetActive(false);
+    }
+
+    public void HowToPlay()
     {
         
     }
 
-    // Update is called once per frame
-    void Update()
+    public void Quit()
     {
-        
+        Application.Quit();
     }
 }

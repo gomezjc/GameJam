@@ -116,14 +116,14 @@ namespace Characters
             {
                 if (redColorTime <= 0)
                 {
-                    Debug.Log("rojo");
+                    //Debug.Log("rojo");
                     redColorTime = 0.25f;
                     changeColorTime = true;
                     PersecutionImage.color = ColorRed;
                 }
                 else if (BlueColorTime <= 0)
                 {
-                    Debug.Log("azul");
+                    //Debug.Log("azul");
                     BlueColorTime = 0.25f;
                     changeColorTime = false;
                     PersecutionImage.color = ColorBlue;

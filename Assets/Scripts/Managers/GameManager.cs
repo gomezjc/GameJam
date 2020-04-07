@@ -215,7 +215,8 @@ public class GameManager : MonoBehaviour
     
     public void HomeScreen()
     {
-        // volver a pantalla inicial
+        StartGame();
+        SceneManager.LoadScene(0);
     }
 
     public void QuitGame()
@@ -264,9 +265,9 @@ public class GameManager : MonoBehaviour
 
     IEnumerator CleanInteractText(int time)
     {
-        Debug.Log("Esperando para limpiar el mensaje");
+        //Debug.Log("Esperando para limpiar el mensaje");
         yield return new WaitForSeconds(time);
-        Debug.Log("Listo");
+        //Debug.Log("Listo");
         SetInteractText("", false);
     }
 }
