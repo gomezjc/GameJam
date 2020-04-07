@@ -6663,7 +6663,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &617014289
 GameObject:
@@ -12840,7 +12840,7 @@ RectTransform:
   - {fileID: 674581801}
   - {fileID: 318302894}
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -16330,6 +16330,7 @@ MonoBehaviour:
   - {fileID: 1150275045}
   - {fileID: 1831257604}
   - {fileID: 1726786658}
+  LevelChanger: {fileID: 1393390400}
 --- !u!4 &1380422973
 Transform:
   m_ObjectHideFlags: 0
@@ -16681,6 +16682,92 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!1001 &1393390399
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4030739843108233700, guid: bcf2dec46ded28d43b9d83951af32805,
+        type: 3}
+      propertyPath: m_Name
+      value: LevelChanger
+      objectReference: {fileID: 0}
+    - target: {fileID: 4030739843108233701, guid: bcf2dec46ded28d43b9d83951af32805,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1153.6616
+      objectReference: {fileID: 0}
+    - target: {fileID: 4030739843108233701, guid: bcf2dec46ded28d43b9d83951af32805,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 544.8142
+      objectReference: {fileID: 0}
+    - target: {fileID: 4030739843108233701, guid: bcf2dec46ded28d43b9d83951af32805,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -10.682263
+      objectReference: {fileID: 0}
+    - target: {fileID: 4030739843108233701, guid: bcf2dec46ded28d43b9d83951af32805,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4030739843108233701, guid: bcf2dec46ded28d43b9d83951af32805,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4030739843108233701, guid: bcf2dec46ded28d43b9d83951af32805,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4030739843108233701, guid: bcf2dec46ded28d43b9d83951af32805,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4030739843108233701, guid: bcf2dec46ded28d43b9d83951af32805,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4030739843108233701, guid: bcf2dec46ded28d43b9d83951af32805,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4030739843108233701, guid: bcf2dec46ded28d43b9d83951af32805,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4030739843108233701, guid: bcf2dec46ded28d43b9d83951af32805,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4030739843746933055, guid: bcf2dec46ded28d43b9d83951af32805,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: bcf2dec46ded28d43b9d83951af32805, type: 3}
+--- !u!114 &1393390400 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4564390079743529973, guid: bcf2dec46ded28d43b9d83951af32805,
+    type: 3}
+  m_PrefabInstance: {fileID: 1393390399}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f543e16bfbd85714fad49af4e3c9bd85, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1393837907
 GameObject:
   m_ObjectHideFlags: 0

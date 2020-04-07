@@ -32,6 +32,8 @@ public class GameManager : MonoBehaviour
     public Image FamilyHealthBar;
     public Transform[] MoveSpots;
 
+    [Header("Misc")] public LevelChanger LevelChanger;
+
     [HideInInspector] public static int EMPANADA = 0;
     [HideInInspector] public static int TINTO = 1;
     [HideInInspector] public static int AREPA = 2;
@@ -216,7 +218,7 @@ public class GameManager : MonoBehaviour
     public void HomeScreen()
     {
         StartGame();
-        SceneManager.LoadScene(0);
+        LevelChanger.FadeToLevel(0);
     }
 
     public void QuitGame()

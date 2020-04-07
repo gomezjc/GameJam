@@ -9,6 +9,7 @@ public class IntroManager : MonoBehaviour
     public GameObject panelCredits;
     // Start is called before the first frame update
 
+    public LevelChanger LevelChanger;
 
     private void Start()
     {
@@ -32,7 +33,7 @@ public class IntroManager : MonoBehaviour
     
     public void StartGame()
     {
-        SceneManager.LoadScene(1);
+        LevelChanger.FadeToLevel(1);
     }
 
     public void ShowCredits()

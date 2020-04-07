@@ -227,6 +227,7 @@
           <e p="Misc" t="Include">
             <e p="ButtonSound.cs" t="Include" />
             <e p="Items.cs" t="Include" />
+            <e p="LevelChanger.cs" t="Include" />
           </e>
         </e>
         <e p="TextMesh Pro" t="Include">
