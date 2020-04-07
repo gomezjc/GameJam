@@ -220,6 +220,7 @@
           <e p="Managers" t="Include">
             <e p="GameControl.cs" t="Include" />
             <e p="GameManager.cs" t="Include" />
+            <e p="IntroManager.cs" t="Include" />
             <e p="SoundManager.cs" t="Include" />
             <e p="SpawnManager.cs" t="Include" />
           </e>

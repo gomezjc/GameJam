@@ -16,7 +16,7 @@ public class SpawnManager : MonoBehaviour
     private float SpawnTimePolice = 60f;
     private float SpawnTimePeople = 10f;
     private int PercentageWantToBuy = 60;
-    
+
     private void Awake()
     {
         if (instance == null)
@@ -44,20 +44,20 @@ public class SpawnManager : MonoBehaviour
         CancelInvoke("SpawnPolice");
         CancelInvoke("SpawnPeople");
     }
-    
+
     void SpawnPolice()
     {
         int spawnPointIndex = Random.Range(0, SpawnPointsPolice.Count);
         GameObject police = Instantiate(Police, SpawnPointsPolice[spawnPointIndex].position,
             SpawnPointsPolice[spawnPointIndex].rotation);
-        
+
         // set variables of police
         Patrol policePatrol = police.GetComponent<Patrol>();
         policePatrol.moveSpots = GameManager.instance.MoveSpots;
         policePatrol.playerTarget = player.transform;
         policePatrol.StartPatrol();
     }
-    
+
     void SpawnPeople()
     {
         int spawnPointIndex = Random.Range(0, SpawnPointsPeople.Count);
@@ -67,13 +67,17 @@ public class SpawnManager : MonoBehaviour
         // set variables of people
         PatrolPeople peoplePatrol = people.GetComponent<PatrolPeople>();
         InteractBuy interactBuy = people.GetComponentInChildren<InteractBuy>();
-        interactBuy.setItemWantToBuy(itemsToPick[Random.Range(0,itemsToPick.Length)]);
-
-        if (!WantBuy())
+        interactBuy.setItemWantToBuy(itemsToPick[Random.Range(0, itemsToPick.Length)]);
+        
+        if (!GameControl.instance.Charity && !WantBuy())
         {
             interactBuy.WantBuy(false);
+        } else if (GameControl.instance.Charity)
+        {
+            interactBuy.WantBuy(false);
+            interactBuy.CanBuy = true;
         }
-        
+
         peoplePatrol.moveSpots = GameManager.instance.MoveSpots;
         peoplePatrol.startPatrol();
     }

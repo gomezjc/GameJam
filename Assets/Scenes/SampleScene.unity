@@ -16309,7 +16309,7 @@ MonoBehaviour:
   TintoCountText: {fileID: 1076125182}
   InteractText: {fileID: 1984887846}
   gameOverText: {fileID: 1317155471}
-  time: 500
+  time: 120
   FamilyHealthBar: {fileID: 528068670}
   MoveSpots:
   - {fileID: 105986672}

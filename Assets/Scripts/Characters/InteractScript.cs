@@ -23,8 +23,7 @@ public class InteractScript : MonoBehaviour
     public GameObject CloseButton;
     public Image imageBuy;
 
-    [Header("Arrest Panel")] 
-    public GameObject BirbeButton;
+    [Header("Arrest Panel")] public GameObject BirbeButton;
     public GameObject ArrestButton;
     public TextMeshProUGUI BirbeText;
     public Sprite[] imagesCopBirbe;
@@ -45,14 +44,14 @@ public class InteractScript : MonoBehaviour
         "A mi se me antoja _PRODUCTO_ sumerce",
         "Oiga mano, deme _PRODUCTO_ si es tan amable"
     };
-    
+
     private void Start()
     {
         if (GameControl.instance.Charity)
         {
             GameManager.instance.SetInteractText(
                 "No tienes productos para vender, debes recurrir a la caridad, es dificil pero al menos la policia no te persigue.",
-                true,5);
+                true, 5);
         }
         else
         {
@@ -60,12 +59,13 @@ public class InteractScript : MonoBehaviour
             {
                 GameManager.instance.SetInteractText(
                     "Presiona la tecla 'Espacio' para correr, OJO con la tomba",
-                    true,3);   
-            }else if (GameControl.instance.playerInfo.Health <= 30)
+                    true, 3);
+            }
+            else if (GameControl.instance.playerInfo.Health <= 30)
             {
                 GameManager.instance.SetInteractText(
                     "tu familia esta pasando hambre, recuerda comprar comida al final del dia",
-                    true,5);
+                    true, 5);
             }
         }
     }
@@ -89,7 +89,7 @@ public class InteractScript : MonoBehaviour
     {
         if (people != null && peopleInteract != null)
         {
-            ItemCharityText.text = "Por favor, me regala una monedita... mi Dios lo bengida";
+            ItemCharityText.text = "Por favor, me regala una monedita... mi Dios le bengida";
             charityValue = peopleInteract.giveCharity();
             if (charityValue > 0)
             {
@@ -110,6 +110,10 @@ public class InteractScript : MonoBehaviour
 
     public void ReceiveCharity()
     {
+        if (charityValue > 0)
+        {
+            SoundManager.instance.PlaySound("sell");
+        }
         GameControl.instance.addMoney(charityValue);
         peopleInteract.WantBuy(false);
         GameManager.instance.setCashText();
@@ -123,8 +127,8 @@ public class InteractScript : MonoBehaviour
         if (people != null && peopleInteract != null)
         {
             String article = peopleInteract.itemWantToBuy.inventoryCode == GameManager.TINTO ? "un" : "una";
-            itemText.text = RandomBuyWords[Random.Range(0,RandomBuyWords.Length)].Replace("_PRODUCTO_",
-                article +" "+ peopleInteract.itemWantToBuy.name);
+            itemText.text = RandomBuyWords[Random.Range(0, RandomBuyWords.Length)].Replace("_PRODUCTO_",
+                article + " " + peopleInteract.itemWantToBuy.name);
             if (GameControl.instance.hasItemInventoryByItem(peopleInteract.itemWantToBuy))
             {
                 BuyButton.SetActive(true);
@@ -178,12 +182,12 @@ public class InteractScript : MonoBehaviour
                     GameManager.instance.StartGame();
                     GameManager.instance.SetInteractText(
                         "Soborno aceptado, sigue trabajando... este policia no te molestara mas",
-                        true,4);
+                        true, 4);
                 }
                 else
                 {
                     GameManager.instance.SetInteractText(
-                        "Soborno no aceptado. Ahora no tienes productos y pasas el dia en la UPJ",
+                        "Soborno no aceptado. Ahora no tienes productos y pasas el dia en la UPJ, si tienes dinero compra insumos.",
                         true);
                     GameManager.instance.ClearInventory();
                     GameManager.instance.ArrestPanel.SetActive(false);
@@ -200,7 +204,7 @@ public class InteractScript : MonoBehaviour
     public void getArrested()
     {
         GameManager.instance.SetInteractText(
-            "Ahora no tienes productos y pasas el dia en la UPJ",
+            "Ahora no tienes productos y pasas el dia en la UPJ, si tienes dinero compra insumos.",
             true);
         GameManager.instance.ClearInventory();
         GameManager.instance.ArrestPanel.SetActive(false);
@@ -248,7 +252,14 @@ public class InteractScript : MonoBehaviour
             }
             else
             {
-                GameManager.instance.SetInteractText("No, gracias", true);
+                if (GameControl.instance.Charity)
+                {
+                    GameManager.instance.SetInteractText("No tengo", true);   
+                }
+                else
+                {
+                    GameManager.instance.SetInteractText("No, gracias", true);
+                }
             }
         }
         else if (other.gameObject.CompareTag("Enemy"))

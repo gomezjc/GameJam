@@ -87,8 +87,11 @@ namespace Characters
 
         public void cancelFollow()
         {
-            _characterMovement.StopPersecution();
-            _characterMovement = null;
+            if (_characterMovement != null)
+            {
+                _characterMovement.StopPersecution();
+                _characterMovement = null;
+            } 
             currentSpeed = speed;
             following = false;
             followingTime = startFollowTime;
