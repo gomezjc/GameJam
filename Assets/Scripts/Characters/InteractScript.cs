@@ -58,8 +58,8 @@ public class InteractScript : MonoBehaviour
             if (GameControl.instance.playerInfo.Day <= 2)
             {
                 GameManager.instance.SetInteractText(
-                    "Presiona la tecla 'Espacio' para correr, OJO con la tomba",
-                    true, 3);
+                    "Corre presionando 'Espacio'",
+                    true, 4);
             }
             else if (GameControl.instance.playerInfo.Health <= 30)
             {

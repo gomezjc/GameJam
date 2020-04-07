@@ -245,7 +245,7 @@ public class GameManager : MonoBehaviour
     public void StartLevel()
     {
         StartGame();
-        LevelChanger.FadeToLevel(SceneManager.GetActiveScene().buildIndex);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex); 
     }
 
     public void SetInteractText(String text, bool state, int time = 0)

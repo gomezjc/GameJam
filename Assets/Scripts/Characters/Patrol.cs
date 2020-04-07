@@ -38,6 +38,17 @@ namespace Characters
         private Animator _animator;
         private CharacterMovement _characterMovement;
 
+        private void Start()
+        {
+            _animator = GetComponentInChildren<Animator>();
+            currentSpeed = speed;
+            canFollow = !GameControl.instance.Charity;
+            Physics2D.queriesStartInColliders = false;
+            waitTime = startWaitTime;
+            followingTime = startFollowTime;
+            updatePath();
+        }
+
         public void StartPatrol()
         {
             //Debug.Log("start patrol");
@@ -121,7 +132,7 @@ namespace Characters
                     followingTime = startFollowTime;
                     if (!following)
                     {
-                        GameManager.instance.SetInteractText("La tomba!! corre!!!", true, 1);
+                        GameManager.instance.SetInteractText("corre presionando 'Espacio'!!", true, 3);
                         followPlayer();
                     }
                 }
