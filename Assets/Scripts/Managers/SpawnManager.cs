@@ -13,8 +13,8 @@ public class SpawnManager : MonoBehaviour
     public List<Transform> SpawnPointsPeople;
 
     private Items[] itemsToPick;
-    private float SpawnTimePolice = 60f;
-    private float SpawnTimePeople = 10f;
+    private float SpawnTimePolice = 30f;
+    private float SpawnTimePeople = 5f;
     private int PercentageWantToBuy = 60;
 
     private void Awake()

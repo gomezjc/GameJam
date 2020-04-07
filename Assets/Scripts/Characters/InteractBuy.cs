@@ -10,7 +10,7 @@ public class InteractBuy : MonoBehaviour
     public Image imageWantToBuy;
     public GameObject imagePanel;
 
-    private int SuccessPercentage = 30;
+    private int SuccessPercentage = 50;
     private int[] charityValues = {50, 100, 200, 300, 500, 1000};
 
     public void WantBuy(bool wantBuy)
